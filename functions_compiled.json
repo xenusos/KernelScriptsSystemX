@@ -2482,5 +2482,1274 @@
                 ]
             }
         ]
+    },
+    {
+        "file": "lockref",
+        "symbols": [
+            {
+                "name": "lockref_get",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "lockref",
+                        "linux": "struct lockref *",
+                        "xenus": "lockref_k"
+                    }
+                ]
+            },
+            {
+                "name": "lockref_get_not_zero",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "lockref",
+                        "linux": "struct lockref *",
+                        "xenus": "lockref_k"
+                    }
+                ]
+            },
+            {
+                "name": "lockref_get_or_lock",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "lockref",
+                        "linux": "struct lockref *",
+                        "xenus": "lockref_k"
+                    }
+                ]
+            },
+            {
+                "name": "lockref_put_return",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "lockref",
+                        "linux": "struct lockref *",
+                        "xenus": "lockref_k"
+                    }
+                ]
+            },
+            {
+                "name": "lockref_mark_dead",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "lockref",
+                        "linux": "struct lockref *",
+                        "xenus": "lockref_k"
+                    }
+                ]
+            },
+            {
+                "name": "lockref_get_not_dead",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "lockref",
+                        "linux": "struct lockref *",
+                        "xenus": "lockref_k"
+                    }
+                ]
+            },
+            {
+                "name": "lockref_put_or_lock",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "lockref",
+                        "linux": "struct lockref *",
+                        "xenus": "lockref_k"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "file": "dcache",
+        "symbols": [
+            {
+                "name": "__d_drop",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dentry",
+                        "linux": "struct dentry *",
+                        "xenus": "dentry_k"
+                    }
+                ]
+            },
+            {
+                "name": "d_drop",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dentry",
+                        "linux": "struct dentry *",
+                        "xenus": "dentry_k"
+                    }
+                ]
+            },
+            {
+                "name": "dput",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dentry",
+                        "linux": "struct dentry *",
+                        "xenus": "dentry_k"
+                    }
+                ]
+            },
+            {
+                "name": "dget_parent",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct dentry *",
+                    "xenus": "dentry_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dentry",
+                        "linux": "struct dentry *",
+                        "xenus": "dentry_k"
+                    }
+                ]
+            },
+            {
+                "name": "d_find_alias",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct dentry *",
+                    "xenus": "dentry_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "inode",
+                        "linux": "struct inode *",
+                        "xenus": "inode_k"
+                    }
+                ]
+            },
+            {
+                "name": "d_prune_aliases",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "inode",
+                        "linux": "struct inode *",
+                        "xenus": "inode_k"
+                    }
+                ]
+            },
+            {
+                "name": "shrink_dcache_sb",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "sb",
+                        "linux": "struct super_block *",
+                        "xenus": "super_block_k"
+                    }
+                ]
+            },
+            {
+                "name": "path_has_submounts",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "parent",
+                        "linux": "const struct path *",
+                        "xenus": "const path_k"
+                    }
+                ]
+            },
+            {
+                "name": "shrink_dcache_parent",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "parent",
+                        "linux": "struct dentry *",
+                        "xenus": "dentry_k"
+                    }
+                ]
+            },
+            {
+                "name": "d_invalidate",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dentry",
+                        "linux": "struct dentry *",
+                        "xenus": "dentry_k"
+                    }
+                ]
+            },
+            {
+                "name": "d_alloc",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct dentry *",
+                    "xenus": "dentry_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "parent",
+                        "linux": "struct dentry *",
+                        "xenus": "dentry_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "name",
+                        "linux": "const struct qstr *",
+                        "xenus": "const qstr_k"
+                    }
+                ]
+            },
+            {
+                "name": "d_alloc_pseudo",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct dentry *",
+                    "xenus": "dentry_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "sb",
+                        "linux": "struct super_block *",
+                        "xenus": "super_block_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "name",
+                        "linux": "const struct qstr *",
+                        "xenus": "const qstr_k"
+                    }
+                ]
+            },
+            {
+                "name": "d_alloc_name",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct dentry *",
+                    "xenus": "dentry_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "parent",
+                        "linux": "struct dentry *",
+                        "xenus": "dentry_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "name",
+                        "linux": "const char *",
+                        "xenus": "const char *"
+                    }
+                ]
+            },
+            {
+                "name": "d_set_d_op",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dentry",
+                        "linux": "struct dentry *",
+                        "xenus": "dentry_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "op",
+                        "linux": "const struct dentry_operations *",
+                        "xenus": "const dentry_operations_k"
+                    }
+                ]
+            },
+            {
+                "name": "d_set_fallthru",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dentry",
+                        "linux": "struct dentry *",
+                        "xenus": "dentry_k"
+                    }
+                ]
+            },
+            {
+                "name": "d_instantiate",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "entry",
+                        "linux": "struct dentry *",
+                        "xenus": "dentry_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "inode",
+                        "linux": "struct inode *",
+                        "xenus": "inode_k"
+                    }
+                ]
+            },
+            {
+                "name": "d_instantiate_new",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "entry",
+                        "linux": "struct dentry *",
+                        "xenus": "dentry_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "inode",
+                        "linux": "struct inode *",
+                        "xenus": "inode_k"
+                    }
+                ]
+            },
+            {
+                "name": "d_instantiate_no_diralias",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "entry",
+                        "linux": "struct dentry *",
+                        "xenus": "dentry_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "inode",
+                        "linux": "struct inode *",
+                        "xenus": "inode_k"
+                    }
+                ]
+            },
+            {
+                "name": "d_make_root",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct dentry *",
+                    "xenus": "dentry_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "root_inode",
+                        "linux": "struct inode *",
+                        "xenus": "inode_k"
+                    }
+                ]
+            },
+            {
+                "name": "__d_find_any_alias",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct dentry *",
+                    "xenus": "dentry_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "inode",
+                        "linux": "struct inode *",
+                        "xenus": "inode_k"
+                    }
+                ]
+            },
+            {
+                "name": "d_find_any_alias",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct dentry *",
+                    "xenus": "dentry_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "inode",
+                        "linux": "struct inode *",
+                        "xenus": "inode_k"
+                    }
+                ]
+            },
+            {
+                "name": "d_obtain_alias",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct dentry *",
+                    "xenus": "dentry_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "inode",
+                        "linux": "struct inode *",
+                        "xenus": "inode_k"
+                    }
+                ]
+            },
+            {
+                "name": "d_obtain_root",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct dentry *",
+                    "xenus": "dentry_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "inode",
+                        "linux": "struct inode *",
+                        "xenus": "inode_k"
+                    }
+                ]
+            },
+            {
+                "name": "d_add_ci",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct dentry *",
+                    "xenus": "dentry_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dentry",
+                        "linux": "struct dentry *",
+                        "xenus": "dentry_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "inode",
+                        "linux": "struct inode *",
+                        "xenus": "inode_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "name",
+                        "linux": "struct qstr *",
+                        "xenus": "qstr_k"
+                    }
+                ]
+            },
+            {
+                "name": "d_lookup",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct dentry *",
+                    "xenus": "dentry_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "parent",
+                        "linux": "const struct dentry *",
+                        "xenus": "const dentry_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "name",
+                        "linux": "const struct qstr *",
+                        "xenus": "const qstr_k"
+                    }
+                ]
+            },
+            {
+                "name": "d_hash_and_lookup",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct dentry *",
+                    "xenus": "dentry_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dir",
+                        "linux": "struct dentry *",
+                        "xenus": "dentry_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "name",
+                        "linux": "struct qstr *",
+                        "xenus": "qstr_k"
+                    }
+                ]
+            },
+            {
+                "name": "d_delete",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dentry",
+                        "linux": "struct dentry *",
+                        "xenus": "dentry_k"
+                    }
+                ]
+            },
+            {
+                "name": "d_rehash",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "entry",
+                        "linux": "struct dentry *",
+                        "xenus": "dentry_k"
+                    }
+                ]
+            },
+            {
+                "name": "d_alloc_parallel",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct dentry *",
+                    "xenus": "dentry_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "TODO",
+                        "linux": "void **",
+                        "xenus": "void **"
+                    }
+                ]
+            },
+            {
+                "name": "__d_lookup_done",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dentry",
+                        "linux": "struct dentry *",
+                        "xenus": "dentry_k"
+                    }
+                ]
+            },
+            {
+                "name": "d_add",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "entry",
+                        "linux": "struct dentry *",
+                        "xenus": "dentry_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "inode",
+                        "linux": "struct inode *",
+                        "xenus": "inode_k"
+                    }
+                ]
+            },
+            {
+                "name": "d_exact_alias",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct dentry *",
+                    "xenus": "dentry_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "entry",
+                        "linux": "struct dentry *",
+                        "xenus": "dentry_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "inode",
+                        "linux": "struct inode *",
+                        "xenus": "inode_k"
+                    }
+                ]
+            },
+            {
+                "name": "dentry_update_name_case",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dentry",
+                        "linux": "struct dentry *",
+                        "xenus": "dentry_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "name",
+                        "linux": "const struct qstr *",
+                        "xenus": "const qstr_k"
+                    }
+                ]
+            },
+            {
+                "name": "d_move",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dentry",
+                        "linux": "struct dentry *",
+                        "xenus": "dentry_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "target",
+                        "linux": "struct dentry *",
+                        "xenus": "dentry_k"
+                    }
+                ]
+            },
+            {
+                "name": "d_splice_alias",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct dentry *",
+                    "xenus": "dentry_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "inode",
+                        "linux": "struct inode *",
+                        "xenus": "inode_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "dentry",
+                        "linux": "struct dentry *",
+                        "xenus": "dentry_k"
+                    }
+                ]
+            },
+            {
+                "name": "d_path",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "char *",
+                    "xenus": "char *"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "path",
+                        "linux": "const struct path *",
+                        "xenus": "const path_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "buf",
+                        "linux": "char *",
+                        "xenus": "char *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "buflen",
+                        "linux": "int",
+                        "xenus": "l_int"
+                    }
+                ]
+            },
+            {
+                "name": "simple_dname",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "char *",
+                    "xenus": "char *"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dentry",
+                        "linux": "struct dentry *",
+                        "xenus": "dentry_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "buffer",
+                        "linux": "char *",
+                        "xenus": "char *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "buflen",
+                        "linux": "int",
+                        "xenus": "l_int"
+                    }
+                ]
+            },
+            {
+                "name": "dentry_path_raw",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "char *",
+                    "xenus": "char *"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dentry",
+                        "linux": "struct dentry *",
+                        "xenus": "dentry_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "buf",
+                        "linux": "char *",
+                        "xenus": "char *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "buflen",
+                        "linux": "int",
+                        "xenus": "l_int"
+                    }
+                ]
+            },
+            {
+                "name": "d_tmpfile",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dentry",
+                        "linux": "struct dentry *",
+                        "xenus": "dentry_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "inode",
+                        "linux": "struct inode *",
+                        "xenus": "inode_k"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "file": "mountspacenamespace",
+        "symbols": [
+            {
+                "name": "__mnt_is_readonly",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "mnt",
+                        "linux": "struct vfsmount *",
+                        "xenus": "vfsmount_k"
+                    }
+                ]
+            },
+            {
+                "name": "mnt_want_write",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "m",
+                        "linux": "struct vfsmount *",
+                        "xenus": "vfsmount_k"
+                    }
+                ]
+            },
+            {
+                "name": "mnt_clone_write",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "mnt",
+                        "linux": "struct vfsmount *",
+                        "xenus": "vfsmount_k"
+                    }
+                ]
+            },
+            {
+                "name": "mnt_want_write_file",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "file",
+                        "linux": "struct file *",
+                        "xenus": "file_k"
+                    }
+                ]
+            },
+            {
+                "name": "mnt_drop_write",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "mnt",
+                        "linux": "struct vfsmount *",
+                        "xenus": "vfsmount_k"
+                    }
+                ]
+            },
+            {
+                "name": "mnt_drop_write_file",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "file",
+                        "linux": "struct file *",
+                        "xenus": "file_k"
+                    }
+                ]
+            },
+            {
+                "name": "vfs_kern_mount",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct vfsmount *",
+                    "xenus": "vfsmount_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "type",
+                        "linux": "struct file_system_type *",
+                        "xenus": "file_system_type_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "flags",
+                        "linux": "int",
+                        "xenus": "l_int"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "name",
+                        "linux": "const char *",
+                        "xenus": "const char *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "data",
+                        "linux": "void *",
+                        "xenus": "void *"
+                    }
+                ]
+            },
+            {
+                "name": "vfs_submount",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct vfsmount *",
+                    "xenus": "vfsmount_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "mountpoint",
+                        "linux": "const struct dentry *",
+                        "xenus": "const dentry_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "type",
+                        "linux": "struct file_system_type *",
+                        "xenus": "file_system_type_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "name",
+                        "linux": "const char *",
+                        "xenus": "const char *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "data",
+                        "linux": "void *",
+                        "xenus": "void *"
+                    }
+                ]
+            },
+            {
+                "name": "mntput",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "mnt",
+                        "linux": "struct vfsmount *",
+                        "xenus": "vfsmount_k"
+                    }
+                ]
+            },
+            {
+                "name": "mntget",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct vfsmount *",
+                    "xenus": "vfsmount_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "mnt",
+                        "linux": "struct vfsmount *",
+                        "xenus": "vfsmount_k"
+                    }
+                ]
+            },
+            {
+                "name": "path_is_mountpoint",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "bool",
+                    "xenus": "bool"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "path",
+                        "linux": "const struct path *",
+                        "xenus": "const path_k"
+                    }
+                ]
+            },
+            {
+                "name": "may_umount_tree",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "m",
+                        "linux": "struct vfsmount *",
+                        "xenus": "vfsmount_k"
+                    }
+                ]
+            },
+            {
+                "name": "may_umount",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "mnt",
+                        "linux": "struct vfsmount *",
+                        "xenus": "vfsmount_k"
+                    }
+                ]
+            },
+            {
+                "name": "clone_private_mount",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct vfsmount *",
+                    "xenus": "vfsmount_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "path",
+                        "linux": "const struct path *",
+                        "xenus": "const path_k"
+                    }
+                ]
+            },
+            {
+                "name": "mnt_set_expiry",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "mnt",
+                        "linux": "struct vfsmount *",
+                        "xenus": "vfsmount_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "expiry_list",
+                        "linux": "struct list_head *",
+                        "xenus": "list_head_k"
+                    }
+                ]
+            },
+            {
+                "name": "mark_mounts_for_expiry",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "mounts",
+                        "linux": "struct list_head *",
+                        "xenus": "list_head_k"
+                    }
+                ]
+            },
+            {
+                "name": "mount_subtree",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct dentry *",
+                    "xenus": "dentry_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "mnt",
+                        "linux": "struct vfsmount *",
+                        "xenus": "vfsmount_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "name",
+                        "linux": "const char *",
+                        "xenus": "const char *"
+                    }
+                ]
+            },
+            {
+                "name": "path_is_under",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "bool",
+                    "xenus": "bool"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "path1",
+                        "linux": "const struct path *",
+                        "xenus": "const path_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "path2",
+                        "linux": "const struct path *",
+                        "xenus": "const path_k"
+                    }
+                ]
+            },
+            {
+                "name": "kern_mount_data",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct vfsmount *",
+                    "xenus": "vfsmount_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "type",
+                        "linux": "struct file_system_type *",
+                        "xenus": "file_system_type_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "data",
+                        "linux": "void *",
+                        "xenus": "void *"
+                    }
+                ]
+            },
+            {
+                "name": "kern_unmount",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "mnt",
+                        "linux": "struct vfsmount *",
+                        "xenus": "vfsmount_k"
+                    }
+                ]
+            }
+        ]
     }
 ]
