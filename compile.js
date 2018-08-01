@@ -17,7 +17,7 @@ var osAll = "";
 out.forEach((obj) => {
 	var allBuf = "";
 	obj.symbols.forEach((symbol) => {
-		allBuf += util.format("XENUS_IMPORT %s %s(%s);\n", symbol.returnType.xenus, symbol.name, symbol.parameters.map((parameter) => {return parameter.xenus + " " + parameter.name}).join(", "));
+		allBuf += util.format("XENUS_IMPORT %s %s(%s);\n", symbol.returnType.xenus, symbol.name, symbol.parameters.map((parameter) => {return (parameter.usrPtr ? "user_addr_t" : parameter.xenus) + " " + parameter.name}).join(", "));
 	});
 	
 	fs.writeFileSync("osapi/os_" + obj.file + ".h", allBuf);
