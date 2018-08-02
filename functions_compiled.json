@@ -3751,5 +3751,935 @@
                 ]
             }
         ]
+    },
+    {
+        "file": "random",
+        "symbols": [
+            {
+                "name": "get_random_bytes",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "buf",
+                        "linux": "void *",
+                        "xenus": "void *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "nbytes",
+                        "linux": "int",
+                        "xenus": "l_int"
+                    }
+                ]
+            },
+            {
+                "name": "wait_for_random_bytes",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": []
+            },
+            {
+                "name": "get_random_u32",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "u32",
+                    "xenus": "uint32_t"
+                },
+                "parameters": []
+            },
+            {
+                "name": "get_random_u64",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "u64",
+                    "xenus": "uint64_t"
+                },
+                "parameters": []
+            }
+        ]
+    },
+    {
+        "file": "pid",
+        "symbols": [
+            {
+                "name": "put_pid",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "pid",
+                        "linux": "struct pid *",
+                        "xenus": "pid_k"
+                    }
+                ]
+            },
+            {
+                "name": "find_pid_ns",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct pid *",
+                    "xenus": "pid_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "nr",
+                        "linux": "int",
+                        "xenus": "l_int"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "ns",
+                        "linux": "struct pid_namespace *",
+                        "xenus": "pid_namespace_k"
+                    }
+                ]
+            },
+            {
+                "name": "find_vpid",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct pid *",
+                    "xenus": "pid_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "nr",
+                        "linux": "int",
+                        "xenus": "l_int"
+                    }
+                ]
+            },
+            {
+                "name": "pid_task",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct task_struct *",
+                    "xenus": "task_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "pid",
+                        "linux": "struct pid *",
+                        "xenus": "pid_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "type",
+                        "linux": "enum pid_type",
+                        "xenus": "enum pid_type"
+                    }
+                ]
+            },
+            {
+                "name": "get_task_pid",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct pid *",
+                    "xenus": "pid_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "task",
+                        "linux": "struct task_struct *",
+                        "xenus": "task_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "type",
+                        "linux": "enum pid_type",
+                        "xenus": "enum pid_type"
+                    }
+                ]
+            },
+            {
+                "name": "get_pid_task",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct task_struct *",
+                    "xenus": "task_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "pid",
+                        "linux": "struct pid *",
+                        "xenus": "pid_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "type",
+                        "linux": "enum pid_type",
+                        "xenus": "enum pid_type"
+                    }
+                ]
+            },
+            {
+                "name": "find_get_pid",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct pid *",
+                    "xenus": "pid_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "nr",
+                        "linux": "pid_t",
+                        "xenus": "pid_t"
+                    }
+                ]
+            },
+            {
+                "name": "pid_nr_ns",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "pid_t",
+                    "xenus": "pid_t"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "pid",
+                        "linux": "struct pid *",
+                        "xenus": "pid_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "ns",
+                        "linux": "struct pid_namespace *",
+                        "xenus": "pid_namespace_k"
+                    }
+                ]
+            },
+            {
+                "name": "pid_vnr",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "pid_t",
+                    "xenus": "pid_t"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "pid",
+                        "linux": "struct pid *",
+                        "xenus": "pid_k"
+                    }
+                ]
+            },
+            {
+                "name": "task_active_pid_ns",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct pid_namespace *",
+                    "xenus": "pid_namespace_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "tsk",
+                        "linux": "struct task_struct *",
+                        "xenus": "task_k"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "file": "fuckthisshitimout",
+        "symbols": [
+            {
+                "name": "do_exit",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "code",
+                        "linux": "long",
+                        "xenus": "l_long"
+                    }
+                ]
+            },
+            {
+                "name": "complete_and_exit",
+                "returnType": {
+                    "linux": "void",
+                    "xenus": "void",
+                    "usrPtr": false
+                },
+                "parameters": [
+                    {
+                        "xenus": "void *",
+                        "name": "sysvcb",
+                        "linux": "",
+                        "usrPtr": false
+                    },
+                    {
+                        "linux": "long",
+                        "name": "code",
+                        "xenus": "l_long",
+                        "usrPtr": false
+                    }
+                ]
+            },
+            {
+                "name": "abort",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": []
+            }
+        ]
+    },
+    {
+        "file": "mmap",
+        "symbols": [
+            {
+                "name": "vm_get_page_prot",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "pgprot_t",
+                    "xenus": "pgprot_t"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "vm_flags",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    }
+                ]
+            },
+            {
+                "name": "get_unmapped_area",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "unsigned long",
+                    "xenus": "l_unsigned_long"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "file",
+                        "linux": "struct file *",
+                        "xenus": "file_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "addr",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "len",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "pgoff",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "flags",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    }
+                ]
+            },
+            {
+                "name": "find_vma",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct vm_area_struct *",
+                    "xenus": "vm_area_struct_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "mm",
+                        "linux": "struct mm_struct *",
+                        "xenus": "mm_struct_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "addr",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    }
+                ]
+            },
+            {
+                "name": "find_extend_vma",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct vm_area_struct *",
+                    "xenus": "vm_area_struct_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "mm",
+                        "linux": "struct mm_struct *",
+                        "xenus": "mm_struct_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "addr",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    }
+                ]
+            },
+            {
+                "name": "vm_munmap",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "start",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "len",
+                        "linux": "size_t",
+                        "xenus": "size_t"
+                    }
+                ]
+            },
+            {
+                "name": "vm_brk_flags",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "addr",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "len",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "flags",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    }
+                ]
+            },
+            {
+                "name": "vm_brk",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "addr",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "len",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "file": "mmutils",
+        "symbols": [
+            {
+                "name": "kfree_const",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "x",
+                        "linux": "const void *",
+                        "xenus": "const void *"
+                    }
+                ]
+            },
+            {
+                "name": "kstrdup",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "char *",
+                    "xenus": "char *"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "s",
+                        "linux": "const char *",
+                        "xenus": "const char *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "gfp",
+                        "linux": "gfp_t",
+                        "xenus": "gfp_t"
+                    }
+                ]
+            },
+            {
+                "name": "kstrdup_const",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "const char *",
+                    "xenus": "const char *"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "s",
+                        "linux": "const char *",
+                        "xenus": "const char *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "gfp",
+                        "linux": "gfp_t",
+                        "xenus": "gfp_t"
+                    }
+                ]
+            },
+            {
+                "name": "kstrndup",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "char *",
+                    "xenus": "char *"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "s",
+                        "linux": "const char *",
+                        "xenus": "const char *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "max",
+                        "linux": "size_t",
+                        "xenus": "size_t"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "gfp",
+                        "linux": "gfp_t",
+                        "xenus": "gfp_t"
+                    }
+                ]
+            },
+            {
+                "name": "kmemdup",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void *",
+                    "xenus": "void *"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "src",
+                        "linux": "const void *",
+                        "xenus": "const void *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "len",
+                        "linux": "size_t",
+                        "xenus": "size_t"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "gfp",
+                        "linux": "gfp_t",
+                        "xenus": "gfp_t"
+                    }
+                ]
+            },
+            {
+                "name": "kmemdup_nul",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "char *",
+                    "xenus": "char *"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "s",
+                        "linux": "const char *",
+                        "xenus": "const char *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "len",
+                        "linux": "size_t",
+                        "xenus": "size_t"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "gfp",
+                        "linux": "gfp_t",
+                        "xenus": "gfp_t"
+                    }
+                ]
+            },
+            {
+                "name": "memdup_user",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void *",
+                    "xenus": "void *"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": true,
+                        "name": "src",
+                        "linux": "const void *",
+                        "xenus": "const void *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "len",
+                        "linux": "size_t",
+                        "xenus": "size_t"
+                    }
+                ]
+            },
+            {
+                "name": "vmemdup_user",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void *",
+                    "xenus": "void *"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": true,
+                        "name": "src",
+                        "linux": "const void *",
+                        "xenus": "const void *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "len",
+                        "linux": "size_t",
+                        "xenus": "size_t"
+                    }
+                ]
+            },
+            {
+                "name": "strndup_user",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "char *",
+                    "xenus": "char *"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": true,
+                        "name": "s",
+                        "linux": "const char *",
+                        "xenus": "const char *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "n",
+                        "linux": "long",
+                        "xenus": "l_long"
+                    }
+                ]
+            },
+            {
+                "name": "memdup_user_nul",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void *",
+                    "xenus": "void *"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": true,
+                        "name": "src",
+                        "linux": "const void *",
+                        "xenus": "const void *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "len",
+                        "linux": "size_t",
+                        "xenus": "size_t"
+                    }
+                ]
+            },
+            {
+                "name": "__get_user_pages_fast",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "start",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "nr_pages",
+                        "linux": "int",
+                        "xenus": "l_int"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "write",
+                        "linux": "int",
+                        "xenus": "l_int"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "pages",
+                        "linux": "struct page **",
+                        "xenus": "page_k *"
+                    }
+                ]
+            },
+            {
+                "name": "get_user_pages_fast",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "start",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "nr_pages",
+                        "linux": "int",
+                        "xenus": "l_int"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "write",
+                        "linux": "int",
+                        "xenus": "l_int"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "pages",
+                        "linux": "struct page **",
+                        "xenus": "page_k *"
+                    }
+                ]
+            },
+            {
+                "name": "vm_mmap",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "unsigned long",
+                    "xenus": "l_unsigned_long"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "file",
+                        "linux": "struct file *",
+                        "xenus": "file_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "addr",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "len",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "prot",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "flag",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "offset",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    }
+                ]
+            },
+            {
+                "name": "kvmalloc_node",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void *",
+                    "xenus": "void *"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "size",
+                        "linux": "size_t",
+                        "xenus": "size_t"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "flags",
+                        "linux": "gfp_t",
+                        "xenus": "gfp_t"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "node",
+                        "linux": "int",
+                        "xenus": "l_int"
+                    }
+                ]
+            },
+            {
+                "name": "kvfree",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "addr",
+                        "linux": "const void *",
+                        "xenus": "const void *"
+                    }
+                ]
+            },
+            {
+                "name": "page_mapped",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "bool",
+                    "xenus": "bool"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "page",
+                        "linux": "struct page *",
+                        "xenus": "page_k"
+                    }
+                ]
+            },
+            {
+                "name": "page_mapping",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct address_space *",
+                    "xenus": "address_space_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "page",
+                        "linux": "struct page *",
+                        "xenus": "page_k"
+                    }
+                ]
+            },
+            {
+                "name": "__page_mapcount",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "page",
+                        "linux": "struct page *",
+                        "xenus": "page_k"
+                    }
+                ]
+            },
+            {
+                "name": "vm_memory_committed",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "unsigned long",
+                    "xenus": "l_unsigned_long"
+                },
+                "parameters": []
+            }
+        ]
     }
 ]

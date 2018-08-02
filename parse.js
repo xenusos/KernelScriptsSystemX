@@ -21,7 +21,11 @@ var primativeTypes =
 						{linux: 's8',  xenus: 'int8_t'},
 						{linux: 's16', xenus: 'int16_t'},
 						{linux: 's32', xenus: 'int32_t'},
-						{linux: 's64', xenus: 'int64_t'}	
+						{linux: 's64', xenus: 'int64_t'},
+
+,
+						{linux: 'struct task_struct *', xenus: 'task_k'},
+						{linux: 'const struct task_struct *', xenus: 'task_k'}					
 					];
 						
 function checkReplace(str, x, y) {
