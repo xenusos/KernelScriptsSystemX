@@ -257,5 +257,38 @@
 		"struct address_space *page_mapping(struct page *page)",
 		"int __page_mapcount(struct page *page)",
 		"unsigned long vm_memory_committed(void)"
+	],
+	"sched_core":
+	[
+	    "int set_cpus_allowed_ptr(struct task_struct *p, const struct cpumask *new_mask)",
+        "void kick_process(struct task_struct *p)",
+        "int wake_up_process(struct task_struct *p)",
+        "void preempt_notifier_inc(void)",
+        "void preempt_notifier_dec(void)",
+        "void preempt_notifier_register(struct preempt_notifier *notifier)",
+        "void preempt_notifier_unregister(struct preempt_notifier *notifier)",
+        "bool single_task_running(void)",
+        "void preempt_count_add(int val)",
+        "void preempt_count_sub(int val)",
+        "void schedule(void)",
+        "void preempt_schedule(void)",
+        "void preempt_schedule_notrace(void)",
+		{
+			"name": "default_wake_function",
+			"returnType": {"linux": "int"},
+			"parameters":	[{"xenus": "wait_queue_entry_t_p", "name": "curr"}, {"linux": "unsigned", "name": "mode"}, {"linux": "int", "name": "wake_flags"}, {"linux": "void *", "name": "data"}]
+		},
+        "void set_user_nice(struct task_struct *p, long nice)",
+        "int sched_setscheduler(struct task_struct *p, int policy, const struct sched_param *param)",
+        "int sched_setattr(struct task_struct *p, const struct sched_attr *attr)",
+        "int sched_setscheduler_nocheck(struct task_struct *p, int policy, const struct sched_param *param)",
+        "int  _cond_resched(void)",
+        "int __sched __cond_resched_softirq(void)",
+        "void __sched yield(void)",
+        "int __sched yield_to(struct task_struct *p, bool preempt)",
+        "long __sched io_schedule_timeout(long timeout)",
+        "void io_schedule(void)",
+        "void __might_sleep(const char *file, int line, int preempt_offset)",
+        "void ___might_sleep(const char *file, int line, int preempt_offset)"
 	]
 }

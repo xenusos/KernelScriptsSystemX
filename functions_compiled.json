@@ -2950,22 +2950,6 @@
                 ]
             },
             {
-                "name": "__d_find_any_alias",
-                "returnType": {
-                    "usrPtr": false,
-                    "linux": "struct dentry *",
-                    "xenus": "dentry_k"
-                },
-                "parameters": [
-                    {
-                        "usrPtr": false,
-                        "name": "inode",
-                        "linux": "struct inode *",
-                        "xenus": "inode_k"
-                    }
-                ]
-            },
-            {
                 "name": "d_find_any_alias",
                 "returnType": {
                     "usrPtr": false,
@@ -4400,28 +4384,6 @@
                 ]
             },
             {
-                "name": "vmemdup_user",
-                "returnType": {
-                    "usrPtr": false,
-                    "linux": "void *",
-                    "xenus": "void *"
-                },
-                "parameters": [
-                    {
-                        "usrPtr": true,
-                        "name": "src",
-                        "linux": "const void *",
-                        "xenus": "const void *"
-                    },
-                    {
-                        "usrPtr": false,
-                        "name": "len",
-                        "linux": "size_t",
-                        "xenus": "size_t"
-                    }
-                ]
-            },
-            {
                 "name": "strndup_user",
                 "returnType": {
                     "usrPtr": false,
@@ -4679,6 +4641,463 @@
                     "xenus": "l_unsigned_long"
                 },
                 "parameters": []
+            }
+        ]
+    },
+    {
+        "file": "sched_core",
+        "symbols": [
+            {
+                "name": "set_cpus_allowed_ptr",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "p",
+                        "linux": "struct task_struct *",
+                        "xenus": "task_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "new_mask",
+                        "linux": "const struct cpumask *",
+                        "xenus": "const cpumask_k"
+                    }
+                ]
+            },
+            {
+                "name": "kick_process",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "p",
+                        "linux": "struct task_struct *",
+                        "xenus": "task_k"
+                    }
+                ]
+            },
+            {
+                "name": "wake_up_process",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "p",
+                        "linux": "struct task_struct *",
+                        "xenus": "task_k"
+                    }
+                ]
+            },
+            {
+                "name": "preempt_notifier_inc",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": []
+            },
+            {
+                "name": "preempt_notifier_dec",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": []
+            },
+            {
+                "name": "preempt_notifier_register",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "notifier",
+                        "linux": "struct preempt_notifier *",
+                        "xenus": "preempt_notifier_k"
+                    }
+                ]
+            },
+            {
+                "name": "preempt_notifier_unregister",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "notifier",
+                        "linux": "struct preempt_notifier *",
+                        "xenus": "preempt_notifier_k"
+                    }
+                ]
+            },
+            {
+                "name": "single_task_running",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "bool",
+                    "xenus": "bool"
+                },
+                "parameters": []
+            },
+            {
+                "name": "preempt_count_add",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "val",
+                        "linux": "int",
+                        "xenus": "l_int"
+                    }
+                ]
+            },
+            {
+                "name": "preempt_count_sub",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "val",
+                        "linux": "int",
+                        "xenus": "l_int"
+                    }
+                ]
+            },
+            {
+                "name": "schedule",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": []
+            },
+            {
+                "name": "preempt_schedule",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": []
+            },
+            {
+                "name": "preempt_schedule_notrace",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": []
+            },
+            {
+                "name": "default_wake_function",
+                "returnType": {
+                    "linux": "int",
+                    "xenus": "l_int",
+                    "usrPtr": false
+                },
+                "parameters": [
+                    {
+                        "xenus": "wait_queue_entry_t_p",
+                        "name": "curr",
+                        "linux": "",
+                        "usrPtr": false
+                    },
+                    {
+                        "linux": "unsigned",
+                        "name": "mode",
+                        "xenus": "l_unsigned",
+                        "usrPtr": false
+                    },
+                    {
+                        "linux": "int",
+                        "name": "wake_flags",
+                        "xenus": "l_int",
+                        "usrPtr": false
+                    },
+                    {
+                        "linux": "void *",
+                        "name": "data",
+                        "xenus": "void *",
+                        "usrPtr": false
+                    }
+                ]
+            },
+            {
+                "name": "set_user_nice",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "p",
+                        "linux": "struct task_struct *",
+                        "xenus": "task_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "nice",
+                        "linux": "long",
+                        "xenus": "l_long"
+                    }
+                ]
+            },
+            {
+                "name": "sched_setscheduler",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "p",
+                        "linux": "struct task_struct *",
+                        "xenus": "task_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "policy",
+                        "linux": "int",
+                        "xenus": "l_int"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "param",
+                        "linux": "const struct sched_param *",
+                        "xenus": "const sched_param_k"
+                    }
+                ]
+            },
+            {
+                "name": "sched_setattr",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "p",
+                        "linux": "struct task_struct *",
+                        "xenus": "task_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "attr",
+                        "linux": "const struct sched_attr *",
+                        "xenus": "const sched_attr_k"
+                    }
+                ]
+            },
+            {
+                "name": "sched_setscheduler_nocheck",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "p",
+                        "linux": "struct task_struct *",
+                        "xenus": "task_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "policy",
+                        "linux": "int",
+                        "xenus": "l_int"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "param",
+                        "linux": "const struct sched_param *",
+                        "xenus": "const sched_param_k"
+                    }
+                ]
+            },
+            {
+                "name": "_cond_resched",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int ",
+                    "xenus": "l_int "
+                },
+                "parameters": []
+            },
+            {
+                "name": "__cond_resched_lock",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "lock",
+                        "linux": "spinlock_t *",
+                        "xenus": "spinlock_t *"
+                    }
+                ]
+            },
+            {
+                "name": "__cond_resched_softirq",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int ",
+                    "xenus": "l_int "
+                },
+                "parameters": []
+            },
+            {
+                "name": "yield",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void ",
+                    "xenus": "void "
+                },
+                "parameters": []
+            },
+            {
+                "name": "yield_to",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int ",
+                    "xenus": "l_int "
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "p",
+                        "linux": "struct task_struct *",
+                        "xenus": "task_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "preempt",
+                        "linux": "bool",
+                        "xenus": "bool"
+                    }
+                ]
+            },
+            {
+                "name": "io_schedule_timeout",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "long ",
+                    "xenus": "l_long "
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "timeout",
+                        "linux": "long",
+                        "xenus": "l_long"
+                    }
+                ]
+            },
+            {
+                "name": "io_schedule",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": []
+            },
+            {
+                "name": "__might_sleep",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "file",
+                        "linux": "const char *",
+                        "xenus": "const char *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "line",
+                        "linux": "int",
+                        "xenus": "l_int"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "preempt_offset",
+                        "linux": "int",
+                        "xenus": "l_int"
+                    }
+                ]
+            },
+            {
+                "name": "___might_sleep",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "file",
+                        "linux": "const char *",
+                        "xenus": "const char *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "line",
+                        "linux": "int",
+                        "xenus": "l_int"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "preempt_offset",
+                        "linux": "int",
+                        "xenus": "l_int"
+                    }
+                ]
             }
         ]
     }
