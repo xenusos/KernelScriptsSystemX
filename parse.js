@@ -29,7 +29,7 @@ var primativeTypes =
 					];
 						
 function checkReplace(str, x, y) {
-	if (str.indexOf(x) != -1) 
+	if (((str.indexOf(x) == 0)) && ((x.length == str.length) || (x.length == str.indexOf(" "))))
 		return str.split(x).join(y);
 	return undefined;
 }
@@ -77,7 +77,7 @@ function translateType(gccType) {
 	if (ret = translatePrimativeTypes(gccType))
 		return ret;
 	
-	if (ret = translatePortableTypes(gccType))
+	if (ret = translatePortableTypes(gccType)) 
 		return ret;
 	
 	return gccType;
