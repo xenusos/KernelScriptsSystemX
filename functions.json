@@ -7,7 +7,7 @@
 			"returnType": {"linux": "int"},
 			"parameters": [	{"linux": "struct file *", "name": "file"},
 							{"linux": "struct dentry *", "name": "dentry"},
-							{"xenus": "void *", "name": "sysvcb"},
+							{"xenus": "sysv_fptr_t", "name": "sysvcb"},
 							{"linux": "int *", "name": "opened"}]
 		},
 		"int finish_no_open(struct file *file, struct dentry *dentry)",
@@ -223,7 +223,7 @@
 		{
 			"name": "complete_and_exit",
 			"returnType": {"linux": "void"},
-			"parameters":	[{"xenus": "void *", "name": "sysvcb"}, {"linux": "long", "name": "code"}]
+			"parameters":	[{"xenus": "sysv_fptr_t", "name": "sysvcb"}, {"linux": "long", "name": "code"}]
 		},
 		"void abort(void)"
 	],
