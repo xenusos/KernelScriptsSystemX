@@ -290,5 +290,39 @@
         "void io_schedule(void)",
         "void __might_sleep(const char *file, int line, int preempt_offset)",
         "void ___might_sleep(const char *file, int line, int preempt_offset)"
+	],
+	"chardev":
+	[
+		"int register_chrdev_region(dev_t from, unsigned count, const char *name)",
+		"void unregister_chrdev_region(dev_t from, unsigned count)",
+		"int alloc_chrdev_region(dev_t *dev, unsigned baseminor, unsigned count, const char *name)",
+		"void cdev_init(struct cdev *cdev, const struct file_operations *fops)",
+		"struct cdev *cdev_alloc(void)",
+		"void cdev_del(struct cdev *p)",
+		"int cdev_add(struct cdev *p, dev_t dev, unsigned count)",
+		"void cdev_set_parent(struct cdev *p, struct kobject *kobj)",
+		"int cdev_device_add(struct cdev *cdev, struct device *dev)",
+		"void cdev_device_del(struct cdev *cdev, struct device *dev)",
+		"int __register_chrdev(unsigned int major, unsigned int baseminor, unsigned int count, const char *name, const struct file_operations *fops)",
+		"void __unregister_chrdev(unsigned int major, unsigned int baseminor, unsigned int count, const char *name)"
+	],
+	"linuxclass":
+	[
+		"int __class_register(struct class *cls, struct lock_class_key *key)",
+		"void class_destroy(struct class *cls)",
+		"void class_unregister(struct class *cls)",
+		"struct class *__class_create(struct module *owner, const char *name, struct lock_class_key *key)",
+		"void class_dev_iter_init(struct class_dev_iter *iter, struct class *clzz, struct device *start, const struct device_type *type)",
+		"struct device *class_dev_iter_next(struct class_dev_iter *iter)",
+		"void class_dev_iter_exit(struct class_dev_iter *iter)",
+		"int class_for_each_device(struct class *clzz, struct device *start, void *data, sysv_fptr_t fn)",
+		"struct device *class_find_device(struct class *clzz, struct device *start, const void *data, sysv_fptr_t matchfn)",
+		"int class_interface_register(struct class_interface *class_intf)",
+		"void class_interface_unregister(struct class_interface *class_intf)",
+		"ssize_t show_class_attr_string(struct class *clzz, struct class_attribute *attr, char *buf)",
+		"struct class_compat *class_compat_register(const char *name)",
+		"void class_compat_unregister(struct class_compat *cls)",
+		"int class_compat_create_link(struct class_compat *cls, struct device *dev, struct device *device_link)",
+		"void class_compat_remove_link(struct class_compat *cls, struct device *dev, struct device *device_link)"
 	]
 }
