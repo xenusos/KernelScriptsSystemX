@@ -324,5 +324,81 @@
 		"void class_compat_unregister(struct class_compat *cls)",
 		"int class_compat_create_link(struct class_compat *cls, struct device *dev, struct device *device_link)",
 		"void class_compat_remove_link(struct class_compat *cls, struct device *dev, struct device *device_link)"
+	],
+	"modcore":
+	[
+		"int register_module_notifier(struct notifier_block *nb)",
+		"int unregister_module_notifier(struct notifier_block *nb)",
+		"void __module_put_and_exit(struct module *mod, long code)",
+		"bool each_symbol_section(sysv_fptr_t stub, void * data)",
+		"const struct kernel_symbol *find_symbol(const char *name, struct module **owner, const s32 **crc, bool gplok, bool warn)",
+		"struct module *find_module(const char *name)",
+		"int ref_module(struct module *a, struct module *b)",
+		"int module_refcount(struct module *mod)",
+		"void symbol_put_addr(void *addr)",
+		"void __module_get(struct module *module)",
+		"bool try_module_get(struct module *module)",
+		"void module_put(struct module *module)",
+		"void *INCLUDEDINBOOTSTRAP____symbol_get(const char *symbol)",
+		"struct module *__module_address(unsigned long addr)",
+		"struct module *__module_text_address(unsigned long addr)"
+	],
+	"driversbasecore":
+	[
+		"struct device_link *device_link_add(struct device *consumer, struct device *supplier, u32 flags)",
+		"void device_link_del(struct device_link *link)",
+		"const char *dev_driver_string(const struct device *dev)",
+		"ssize_t device_store_ulong(struct device *dev, struct device_attribute *attr, const char *buf, size_t size)",
+		"ssize_t device_show_ulong(struct device *dev, struct device_attribute *attr, char *buf)",
+		"ssize_t device_store_int(struct device *dev, struct device_attribute *attr, const char *buf, size_t size)",
+		"ssize_t device_show_int(struct device *dev, struct device_attribute *attr, char *buf)",
+		"ssize_t device_store_bool(struct device *dev, struct device_attribute *attr, const char *buf, size_t size)",
+		"ssize_t device_show_bool(struct device *dev, struct device_attribute *attr, char *buf)",
+		"int device_add_groups(struct device *dev, const struct attribute_group **groups)",
+		"void device_remove_groups(struct device *dev, const struct attribute_group **groups)",
+		"int devm_device_add_group(struct device *dev, const struct attribute_group *grp)",
+		"void devm_device_remove_group(struct device *dev, const struct attribute_group *grp)",
+		"int devm_device_add_groups(struct device *dev, const struct attribute_group **groups)",
+		"void devm_device_remove_groups(struct device *dev, const struct attribute_group **groups)",
+		"int device_create_file(struct device *dev, const struct device_attribute *attr)",
+		"void device_remove_file(struct device *dev, const struct device_attribute *attr)",
+		"bool device_remove_file_self(struct device *dev, const struct device_attribute *attr)",
+		"int device_create_bin_file(struct device *dev, const struct bin_attribute *attr)",
+		"void device_remove_bin_file(struct device *dev, const struct bin_attribute *attr)",
+		"void device_initialize(struct device *dev)",
+		"int device_add(struct device *dev)",
+		"int device_register(struct device *dev)",
+		"struct device *get_device(struct device *dev)",
+		"void put_device(struct device *dev)",
+		"void device_del(struct device *dev)",
+		"void device_unregister(struct device *dev)",
+		"int device_for_each_child(struct device *parent, void *data, sysv_fptr_t stub)",
+		"int device_for_each_child_reverse(struct device *parent, void *data, sysv_fptr_t stub)",
+		"struct device *device_find_child(struct device *parent, void *data, sysv_fptr_t stub)",
+		"struct device *__root_device_register(const char *name, struct module *owner)",
+		"void root_device_unregister(struct device *dev)",
+		"struct device *device_create(struct class *clazz, struct device *parent, dev_t devt, void *drvdata, const char *fmt)",
+		"struct device *device_create_with_groups(struct class *clazz, struct device *parent, dev_t devt, void *drvdata, const struct attribute_group **groups, const char *fmt)",
+		"void device_destroy(struct class *clazz, dev_t devt)",
+		"int device_rename(struct device *dev, const char *new_name)",
+		"int dev_printk_emit(int level, const struct device *dev, const char *fmt)",
+		"void dev_emerg(const struct device *dev, const char *fmt)",
+		"void dev_alert(const struct device *dev, const char *fmt)",
+		"void dev_crit(const struct device *dev, const char *fmt)",
+		"void dev_err(const struct device *dev, const char *fmt)",
+		"void dev_warn(const struct device *dev, const char *fmt)",
+		"void dev_notice(const struct device *dev, const char *fmt)",
+		"void _dev_info(const struct device *dev, const char *fmt)",
+		"void set_primary_fwnode(struct device *dev, struct fwnode_handle *fwnode)",
+		"void device_set_of_node_from_dev(struct device *dev, const struct device *dev2)"
+	],
+	"usermem":
+	[
+		"unsigned long _copy_from_user(void *to, const void __user *from, unsigned long n)",
+		"unsigned long _copy_to_user(void __user *to, const void *from, unsigned long n)"
+	],
+	"readdir":
+	[
+		"int iterate_dir(struct file *file, struct dir_context *ctx)"
 	]
 }
