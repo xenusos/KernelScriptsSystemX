@@ -29,7 +29,7 @@ var primativeTypes =
 					];
 						
 function checkReplace(str, x, y) {
-	if (((str.indexOf(x) == 0)) && ((x.length == str.length) || (x.length == str.indexOf(" "))))
+	if (((str.indexOf(x) == 0)) && ((x.length == str.length) || (/*x.length == str.indexOf(" ")) || (x.length == str.indexOf("*"))*/ str.startsWith(x))))
 		return str.split(x).join(y);
 	return undefined;
 }

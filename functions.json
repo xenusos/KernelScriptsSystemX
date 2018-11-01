@@ -282,14 +282,11 @@
         "int sched_setscheduler(struct task_struct *p, int policy, const struct sched_param *param)",
         "int sched_setattr(struct task_struct *p, const struct sched_attr *attr)",
         "int sched_setscheduler_nocheck(struct task_struct *p, int policy, const struct sched_param *param)",
-        "int  _cond_resched(void)",
         "int __sched __cond_resched_softirq(void)",
         "void __sched yield(void)",
         "int __sched yield_to(struct task_struct *p, bool preempt)",
         "long __sched io_schedule_timeout(long timeout)",
-        "void io_schedule(void)",
-        "void __might_sleep(const char *file, int line, int preempt_offset)",
-        "void ___might_sleep(const char *file, int line, int preempt_offset)"
+        "void io_schedule(void)"
 	],
 	"chardev":
 	[
@@ -339,7 +336,6 @@
 		"void __module_get(struct module *module)",
 		"bool try_module_get(struct module *module)",
 		"void module_put(struct module *module)",
-		"void *INCLUDEDINBOOTSTRAP____symbol_get(const char *symbol)",
 		"struct module *__module_address(unsigned long addr)",
 		"struct module *__module_text_address(unsigned long addr)"
 	],
@@ -400,5 +396,142 @@
 	"readdir":
 	[
 		"int iterate_dir(struct file *file, struct dir_context *ctx)"
-	]
+	],
+	"rwsem":
+	[
+		"void downgrade_write(struct rw_semaphore *sem)",
+		"void up_write(struct rw_semaphore *sem)",
+		"void up_read(struct rw_semaphore *sem)",
+		"int down_write_trylock(struct rw_semaphore *sem)",
+		"int down_write_killable(struct rw_semaphore *sem)",
+		"void down_write(struct rw_semaphore *sem)",
+		"int down_read_trylock(struct rw_semaphore *sem)",
+		"void down_read(struct rw_semaphore *sem)"
+	],
+	"signal":
+	[
+		"void kernel_sigaction(int sig, __sighandler_t action)",
+		"void recalc_sigpending(void)",
+		"int dequeue_signal(struct task_struct *tsk, sigset_t *mask, siginfo_t *info)",
+		"void flush_signals(struct task_struct *t)",
+		"void force_sig(int sig, struct task_struct *p)",
+		"int send_sig(int sig, struct task_struct *p, int priv)",
+		"int send_sig_info(int sig, struct siginfo *info, struct task_struct *p)",
+		"int sigprocmask(int how, sigset_t *set, sigset_t *oldset)",
+		"int kill_pgrp(struct pid *pid, int sig, int priv)",
+		"int kill_pid(struct pid *pid, int sig, int priv)",
+		"int kill_pid_info_as_cred(int sig, struct siginfo *info, struct pid *pid, const struct cred *cred)"
+	],
+	"gup":
+	[
+		"int fixup_user_fault(struct task_struct *tsk, struct mm_struct *mm, unsigned long address, unsigned int fault_flags, bool *unlocked)",
+		"long get_user_pages_locked(unsigned long start, unsigned long nr_pages, unsigned int gup_flags, struct page **pages, int *locked)",
+		"long get_user_pages_unlocked(unsigned long start, unsigned long nr_pages, struct page **pages, unsigned int gup_flags)",
+		"long get_user_pages_remote(struct task_struct *tsk, struct mm_struct *mm, unsigned long start, unsigned long nr_pages, unsigned int gup_flags, struct page **pages, struct vm_area_struct **vmas, int *locked)",
+		"long get_user_pages(unsigned long start, unsigned long nr_pages, unsigned int gup_flags, struct page **pages, struct vm_area_struct **vmas)",
+		"long get_user_pages_longterm(unsigned long start, unsigned long nr_pages, unsigned int gup_flags, struct page **pages, struct vm_area_struct **vmas_arg)"
+	],
+	"iomap":
+	[
+		"void *ioremap_nocache(resource_size_t phys_addr, unsigned long size)",
+		"void *ioremap_uc(resource_size_t phys_addr, unsigned long size)",
+		"void *ioremap_wc(resource_size_t phys_addr, unsigned long size)",
+		"void *ioremap_wt(resource_size_t phys_addr, unsigned long size)",
+		"void *ioremap_cache(resource_size_t phys_addr, unsigned long size)",
+		"void *ioremap_prot(resource_size_t phys_addr, unsigned long size, unsigned long prot_val)",
+		"void iounmap(void *addr)"
+	], 
+	"xenus_memex":
+	[
+		"dma_addr_t memex_page_to_phys(struct page * page)",
+		"void * memex_page_to_virt(struct page * page)",
+		"void memex_get_prot(enum page_cache_mode pcm, pgprot_t * out)"
+	],
+	"mempolicy":
+	[
+		"struct page *alloc_pages_current(gfp_t gfp, unsigned order)"
+	],
+	"alloc_pages":
+	[
+		"void split_page(struct page *page, unsigned int order)",
+		"struct page * __alloc_pages_nodemask(gfp_t gfp_mask, unsigned int order, int preferred_nid, nodemask_t *nodemask)",
+		"unsigned long __get_free_pages(gfp_t gfp_mask, unsigned int order)",
+		"unsigned long get_zeroed_page(gfp_t gfp_mask)",
+		"void __free_pages(struct page *page, unsigned int order)",
+		"void free_pages(unsigned long addr, unsigned int order)",
+		"void __page_frag_cache_drain(struct page *page, unsigned int count)",
+		"void *page_frag_alloc(struct page_frag_cache *nc, unsigned int fragsz, gfp_t gfp_mask)",
+		"void page_frag_free(void *addr)",
+		"void *alloc_pages_exact(size_t size, gfp_t gfp_mask)",
+		"void free_pages_exact(void *virt, size_t size)",
+		"unsigned long nr_free_buffer_pages(void)",
+		"long si_mem_available(void)",
+		"void si_meminfo(struct sysinfo *val)",
+		"void adjust_managed_page_count(struct page *page, long count)",
+		"unsigned long free_reserved_area(void *start, void *end, int poison, char *s)"
+	],
+	"vmalloc":
+	[
+		"struct page *vmalloc_to_page(const void *vmalloc_addr)",
+		"unsigned long vmalloc_to_pfn(const void *vmalloc_addr)",
+		"int register_vmap_purge_notifier(struct notifier_block *nb)",
+		"int unregister_vmap_purge_notifier(struct notifier_block *nb)",
+		"void vm_unmap_aliases(void)",
+		"void vm_unmap_ram(const void *mem, unsigned int count)",
+		"void *vm_map_ram(struct page **pages, unsigned int count, int node, pgprot_t prot)",
+		"void unmap_kernel_range_noflush(unsigned long addr, unsigned long size)",
+		"void unmap_kernel_range(unsigned long addr, unsigned long size)",
+		"int map_vm_area(struct vm_struct *area, pgprot_t prot, struct page **pages)",
+		"struct vm_struct *__get_vm_area(unsigned long size, unsigned long flags, unsigned long start, unsigned long end)",
+		"void vunmap(const void *addr)",
+		"void *vmap(struct page **pages, unsigned int count, unsigned long flags, pgprot_t prot)",
+		"void *__vmalloc(unsigned long size, gfp_t gfp_mask, pgprot_t prot)",
+		"int remap_vmalloc_range_partial(struct vm_area_struct *vma, unsigned long uaddr, void *kaddr, unsigned long size)",
+		"int remap_vmalloc_range(struct vm_area_struct *vma, void *addr, unsigned long pgoff)",
+		"struct vm_struct *alloc_vm_area(size_t size, pte_t **ptes)",
+		"void free_vm_area(struct vm_struct *area)"
+	],
+	"memory":
+	[
+		"int zap_vma_ptes(struct vm_area_struct *vma, unsigned long address, unsigned long size)",
+		"int vm_insert_page(struct vm_area_struct *vma, unsigned long addr, struct page *page)",
+		"int vm_insert_pfn(struct vm_area_struct *vma, unsigned long addr, unsigned long pfn)",
+		"int vm_insert_pfn_prot(struct vm_area_struct *vma, unsigned long addr, unsigned long pfn, pgprot_t pgprot)",
+		"int vm_insert_mixed(struct vm_area_struct *vma, unsigned long addr, pfn_t pfn)",
+		"int vm_insert_mixed_mkwrite(struct vm_area_struct *vma, unsigned long addr, pfn_t pfn)",
+		"int remap_pfn_range(struct vm_area_struct *vma, unsigned long addr, unsigned long pfn, unsigned long size, pgprot_t prot)",
+		"int vm_iomap_memory(struct vm_area_struct *vma, phys_addr_t start, unsigned long len)",
+		"int apply_to_page_range(struct mm_struct *mm, unsigned long addr, unsigned long size, pte_fn_t fn, void *data)",
+		"void unmap_mapping_range(struct address_space *mapping, loff_t const holebegin, loff_t const holelen, int even_cows)",
+		"int handle_mm_fault(struct vm_area_struct *vma, unsigned long address, unsigned int flags)",
+		"int follow_pfn(struct vm_area_struct *vma, unsigned long address, unsigned long *pfn)",
+		"int generic_access_phys(struct vm_area_struct *vma, unsigned long addr, void *buf, int len, int write)",
+		"int access_process_vm(struct task_struct *tsk, unsigned long addr, void *buf, int len, unsigned int gup_flags)"
+	],
+	"unsafespinnies":
+	[
+		"void _raw_spin_lock(void *lock)",
+		"void _raw_spin_unlock(void *lock)"
+	],
+	"map_hack":
+	[
+		"struct vm_area_struct *_install_special_mapping(struct mm_struct *mm, unsigned long addr, unsigned long len, unsigned long vm_flags, const struct vm_special_mapping *spec)",
+		"int vm_munmap_ex(struct mm_struct *mm, unsigned long start, size_t length"
+	],
+	"KNIFE":
+	[
+		"void free_task(struct task_struct *tsk)",
+		"void __put_task_struct(struct task_struct *tsk)",
+		"void __mmdrop(struct mm_struct *mm)",
+		"void mmput(struct mm_struct *mm)",
+		"struct file *get_mm_exe_file(struct mm_struct *mm)",
+		"struct file *get_task_exe_file(struct task_struct *task)",
+		"struct mm_struct *get_task_mm(struct task_struct *task)"
+	],
+	"file_table":
+	[
+		"unsigned long get_max_files(void)",
+		"struct file *alloc_file(const struct path *path, fmode_t mode, const struct file_operations *fop)",
+		"void fput(struct file *file)"
+	]	
 }

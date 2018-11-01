@@ -79,7 +79,7 @@
                         "usrPtr": false
                     },
                     {
-                        "xenus": "void *",
+                        "xenus": "sysv_fptr_t",
                         "name": "sysvcb",
                         "linux": "",
                         "usrPtr": false
@@ -4013,7 +4013,7 @@
                 },
                 "parameters": [
                     {
-                        "xenus": "void *",
+                        "xenus": "sysv_fptr_t",
                         "name": "sysvcb",
                         "linux": "",
                         "usrPtr": false
@@ -4954,31 +4954,6 @@
                 ]
             },
             {
-                "name": "_cond_resched",
-                "returnType": {
-                    "usrPtr": false,
-                    "linux": "int ",
-                    "xenus": "l_int "
-                },
-                "parameters": []
-            },
-            {
-                "name": "__cond_resched_lock",
-                "returnType": {
-                    "usrPtr": false,
-                    "linux": "int",
-                    "xenus": "l_int"
-                },
-                "parameters": [
-                    {
-                        "usrPtr": false,
-                        "name": "lock",
-                        "linux": "spinlock_t *",
-                        "xenus": "spinlock_t *"
-                    }
-                ]
-            },
-            {
                 "name": "__cond_resched_softirq",
                 "returnType": {
                     "usrPtr": false,
@@ -5042,9 +5017,42 @@
                     "xenus": "void"
                 },
                 "parameters": []
+            }
+        ]
+    },
+    {
+        "file": "chardev",
+        "symbols": [
+            {
+                "name": "register_chrdev_region",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "from",
+                        "linux": "dev_t",
+                        "xenus": "dev_t"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "count",
+                        "linux": "unsigned",
+                        "xenus": "l_unsigned"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "name",
+                        "linux": "const char *",
+                        "xenus": "const char *"
+                    }
+                ]
             },
             {
-                "name": "__might_sleep",
+                "name": "unregister_chrdev_region",
                 "returnType": {
                     "usrPtr": false,
                     "linux": "void",
@@ -5053,26 +5061,4478 @@
                 "parameters": [
                     {
                         "usrPtr": false,
-                        "name": "file",
+                        "name": "from",
+                        "linux": "dev_t",
+                        "xenus": "dev_t"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "count",
+                        "linux": "unsigned",
+                        "xenus": "l_unsigned"
+                    }
+                ]
+            },
+            {
+                "name": "alloc_chrdev_region",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "dev_t *",
+                        "xenus": "dev_t *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "baseminor",
+                        "linux": "unsigned",
+                        "xenus": "l_unsigned"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "count",
+                        "linux": "unsigned",
+                        "xenus": "l_unsigned"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "name",
+                        "linux": "const char *",
+                        "xenus": "const char *"
+                    }
+                ]
+            },
+            {
+                "name": "cdev_init",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "cdev",
+                        "linux": "struct cdev *",
+                        "xenus": "cdev_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "fops",
+                        "linux": "const struct file_operations *",
+                        "xenus": "const file_operations_k"
+                    }
+                ]
+            },
+            {
+                "name": "cdev_alloc",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct cdev *",
+                    "xenus": "cdev_k"
+                },
+                "parameters": []
+            },
+            {
+                "name": "cdev_del",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "p",
+                        "linux": "struct cdev *",
+                        "xenus": "cdev_k"
+                    }
+                ]
+            },
+            {
+                "name": "cdev_add",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "p",
+                        "linux": "struct cdev *",
+                        "xenus": "cdev_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "dev_t",
+                        "xenus": "dev_t"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "count",
+                        "linux": "unsigned",
+                        "xenus": "l_unsigned"
+                    }
+                ]
+            },
+            {
+                "name": "cdev_set_parent",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "p",
+                        "linux": "struct cdev *",
+                        "xenus": "cdev_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "kobj",
+                        "linux": "struct kobject *",
+                        "xenus": "kobject_k"
+                    }
+                ]
+            },
+            {
+                "name": "cdev_device_add",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "cdev",
+                        "linux": "struct cdev *",
+                        "xenus": "cdev_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    }
+                ]
+            },
+            {
+                "name": "cdev_device_del",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "cdev",
+                        "linux": "struct cdev *",
+                        "xenus": "cdev_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    }
+                ]
+            },
+            {
+                "name": "__register_chrdev",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "major",
+                        "linux": "unsigned int",
+                        "xenus": "l_unsigned_int"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "baseminor",
+                        "linux": "unsigned int",
+                        "xenus": "l_unsigned_int"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "count",
+                        "linux": "unsigned int",
+                        "xenus": "l_unsigned_int"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "name",
                         "linux": "const char *",
                         "xenus": "const char *"
                     },
                     {
                         "usrPtr": false,
-                        "name": "line",
+                        "name": "fops",
+                        "linux": "const struct file_operations *",
+                        "xenus": "const file_operations_k"
+                    }
+                ]
+            },
+            {
+                "name": "__unregister_chrdev",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "major",
+                        "linux": "unsigned int",
+                        "xenus": "l_unsigned_int"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "baseminor",
+                        "linux": "unsigned int",
+                        "xenus": "l_unsigned_int"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "count",
+                        "linux": "unsigned int",
+                        "xenus": "l_unsigned_int"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "name",
+                        "linux": "const char *",
+                        "xenus": "const char *"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "file": "linuxclass",
+        "symbols": [
+            {
+                "name": "__class_register",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "cls",
+                        "linux": "struct class *",
+                        "xenus": "class_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "key",
+                        "linux": "struct lock_class_key *",
+                        "xenus": "lock_class_key_k"
+                    }
+                ]
+            },
+            {
+                "name": "class_destroy",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "cls",
+                        "linux": "struct class *",
+                        "xenus": "class_k"
+                    }
+                ]
+            },
+            {
+                "name": "class_unregister",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "cls",
+                        "linux": "struct class *",
+                        "xenus": "class_k"
+                    }
+                ]
+            },
+            {
+                "name": "__class_create",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct class *",
+                    "xenus": "class_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "owner",
+                        "linux": "struct module *",
+                        "xenus": "module_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "name",
+                        "linux": "const char *",
+                        "xenus": "const char *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "key",
+                        "linux": "struct lock_class_key *",
+                        "xenus": "lock_class_key_k"
+                    }
+                ]
+            },
+            {
+                "name": "class_dev_iter_init",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "iter",
+                        "linux": "struct class_dev_iter *",
+                        "xenus": "class_dev_iter_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "clzz",
+                        "linux": "struct class *",
+                        "xenus": "class_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "start",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "type",
+                        "linux": "const struct device_type *",
+                        "xenus": "const device_type_k"
+                    }
+                ]
+            },
+            {
+                "name": "class_dev_iter_next",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct device *",
+                    "xenus": "device_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "iter",
+                        "linux": "struct class_dev_iter *",
+                        "xenus": "class_dev_iter_k"
+                    }
+                ]
+            },
+            {
+                "name": "class_dev_iter_exit",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "iter",
+                        "linux": "struct class_dev_iter *",
+                        "xenus": "class_dev_iter_k"
+                    }
+                ]
+            },
+            {
+                "name": "class_for_each_device",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "clzz",
+                        "linux": "struct class *",
+                        "xenus": "class_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "start",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "data",
+                        "linux": "void *",
+                        "xenus": "void *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "fn",
+                        "linux": "sysv_fptr_t",
+                        "xenus": "sysv_fptr_t"
+                    }
+                ]
+            },
+            {
+                "name": "class_find_device",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct device *",
+                    "xenus": "device_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "clzz",
+                        "linux": "struct class *",
+                        "xenus": "class_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "start",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "data",
+                        "linux": "const void *",
+                        "xenus": "const void *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "matchfn",
+                        "linux": "sysv_fptr_t",
+                        "xenus": "sysv_fptr_t"
+                    }
+                ]
+            },
+            {
+                "name": "class_interface_register",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "class_intf",
+                        "linux": "struct class_interface *",
+                        "xenus": "class_interface_k"
+                    }
+                ]
+            },
+            {
+                "name": "class_interface_unregister",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "class_intf",
+                        "linux": "struct class_interface *",
+                        "xenus": "class_interface_k"
+                    }
+                ]
+            },
+            {
+                "name": "show_class_attr_string",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "ssize_t",
+                    "xenus": "ssize_t"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "clzz",
+                        "linux": "struct class *",
+                        "xenus": "class_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "attr",
+                        "linux": "struct class_attribute *",
+                        "xenus": "class_attribute_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "buf",
+                        "linux": "char *",
+                        "xenus": "char *"
+                    }
+                ]
+            },
+            {
+                "name": "class_compat_register",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct class_compat *",
+                    "xenus": "class_compat_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "name",
+                        "linux": "const char *",
+                        "xenus": "const char *"
+                    }
+                ]
+            },
+            {
+                "name": "class_compat_unregister",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "cls",
+                        "linux": "struct class_compat *",
+                        "xenus": "class_compat_k"
+                    }
+                ]
+            },
+            {
+                "name": "class_compat_create_link",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "cls",
+                        "linux": "struct class_compat *",
+                        "xenus": "class_compat_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "device_link",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    }
+                ]
+            },
+            {
+                "name": "class_compat_remove_link",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "cls",
+                        "linux": "struct class_compat *",
+                        "xenus": "class_compat_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "device_link",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "file": "modcore",
+        "symbols": [
+            {
+                "name": "register_module_notifier",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "nb",
+                        "linux": "struct notifier_block *",
+                        "xenus": "notifier_block_k"
+                    }
+                ]
+            },
+            {
+                "name": "unregister_module_notifier",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "nb",
+                        "linux": "struct notifier_block *",
+                        "xenus": "notifier_block_k"
+                    }
+                ]
+            },
+            {
+                "name": "__module_put_and_exit",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "mod",
+                        "linux": "struct module *",
+                        "xenus": "module_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "code",
+                        "linux": "long",
+                        "xenus": "l_long"
+                    }
+                ]
+            },
+            {
+                "name": "each_symbol_section",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "bool",
+                    "xenus": "bool"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "stub",
+                        "linux": "sysv_fptr_t",
+                        "xenus": "sysv_fptr_t"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "data",
+                        "linux": "void *",
+                        "xenus": "void *"
+                    }
+                ]
+            },
+            {
+                "name": "find_symbol",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "const struct kernel_symbol *",
+                    "xenus": "const kernel_symbol_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "name",
+                        "linux": "const char *",
+                        "xenus": "const char *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "owner",
+                        "linux": "struct module **",
+                        "xenus": "module_k *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "crc",
+                        "linux": "const s32 **",
+                        "xenus": "const s32 **"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "gplok",
+                        "linux": "bool",
+                        "xenus": "bool"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "warn",
+                        "linux": "bool",
+                        "xenus": "bool"
+                    }
+                ]
+            },
+            {
+                "name": "find_module",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct module *",
+                    "xenus": "module_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "name",
+                        "linux": "const char *",
+                        "xenus": "const char *"
+                    }
+                ]
+            },
+            {
+                "name": "ref_module",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "a",
+                        "linux": "struct module *",
+                        "xenus": "module_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "b",
+                        "linux": "struct module *",
+                        "xenus": "module_k"
+                    }
+                ]
+            },
+            {
+                "name": "module_refcount",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "mod",
+                        "linux": "struct module *",
+                        "xenus": "module_k"
+                    }
+                ]
+            },
+            {
+                "name": "symbol_put_addr",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "addr",
+                        "linux": "void *",
+                        "xenus": "void *"
+                    }
+                ]
+            },
+            {
+                "name": "__module_get",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "module",
+                        "linux": "struct module *",
+                        "xenus": "module_k"
+                    }
+                ]
+            },
+            {
+                "name": "try_module_get",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "bool",
+                    "xenus": "bool"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "module",
+                        "linux": "struct module *",
+                        "xenus": "module_k"
+                    }
+                ]
+            },
+            {
+                "name": "module_put",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "module",
+                        "linux": "struct module *",
+                        "xenus": "module_k"
+                    }
+                ]
+            },
+            {
+                "name": "__module_address",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct module *",
+                    "xenus": "module_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "addr",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    }
+                ]
+            },
+            {
+                "name": "__module_text_address",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct module *",
+                    "xenus": "module_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "addr",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "file": "driversbasecore",
+        "symbols": [
+            {
+                "name": "device_link_add",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct device_link *",
+                    "xenus": "device_link_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "consumer",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "supplier",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "flags",
+                        "linux": "u32",
+                        "xenus": "uint32_t"
+                    }
+                ]
+            },
+            {
+                "name": "device_link_del",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "link",
+                        "linux": "struct device_link *",
+                        "xenus": "device_link_k"
+                    }
+                ]
+            },
+            {
+                "name": "dev_driver_string",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "const char *",
+                    "xenus": "const char *"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "const struct device *",
+                        "xenus": "const device_k"
+                    }
+                ]
+            },
+            {
+                "name": "device_store_ulong",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "ssize_t",
+                    "xenus": "ssize_t"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "attr",
+                        "linux": "struct device_attribute *",
+                        "xenus": "device_attribute_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "buf",
+                        "linux": "const char *",
+                        "xenus": "const char *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "size",
+                        "linux": "size_t",
+                        "xenus": "size_t"
+                    }
+                ]
+            },
+            {
+                "name": "device_show_ulong",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "ssize_t",
+                    "xenus": "ssize_t"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "attr",
+                        "linux": "struct device_attribute *",
+                        "xenus": "device_attribute_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "buf",
+                        "linux": "char *",
+                        "xenus": "char *"
+                    }
+                ]
+            },
+            {
+                "name": "device_store_int",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "ssize_t",
+                    "xenus": "ssize_t"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "attr",
+                        "linux": "struct device_attribute *",
+                        "xenus": "device_attribute_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "buf",
+                        "linux": "const char *",
+                        "xenus": "const char *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "size",
+                        "linux": "size_t",
+                        "xenus": "size_t"
+                    }
+                ]
+            },
+            {
+                "name": "device_show_int",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "ssize_t",
+                    "xenus": "ssize_t"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "attr",
+                        "linux": "struct device_attribute *",
+                        "xenus": "device_attribute_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "buf",
+                        "linux": "char *",
+                        "xenus": "char *"
+                    }
+                ]
+            },
+            {
+                "name": "device_store_bool",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "ssize_t",
+                    "xenus": "ssize_t"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "attr",
+                        "linux": "struct device_attribute *",
+                        "xenus": "device_attribute_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "buf",
+                        "linux": "const char *",
+                        "xenus": "const char *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "size",
+                        "linux": "size_t",
+                        "xenus": "size_t"
+                    }
+                ]
+            },
+            {
+                "name": "device_show_bool",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "ssize_t",
+                    "xenus": "ssize_t"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "attr",
+                        "linux": "struct device_attribute *",
+                        "xenus": "device_attribute_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "buf",
+                        "linux": "char *",
+                        "xenus": "char *"
+                    }
+                ]
+            },
+            {
+                "name": "device_add_groups",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "groups",
+                        "linux": "const struct attribute_group **",
+                        "xenus": "const attribute_group_k *"
+                    }
+                ]
+            },
+            {
+                "name": "device_remove_groups",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "groups",
+                        "linux": "const struct attribute_group **",
+                        "xenus": "const attribute_group_k *"
+                    }
+                ]
+            },
+            {
+                "name": "devm_device_add_group",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "grp",
+                        "linux": "const struct attribute_group *",
+                        "xenus": "const attribute_group_k"
+                    }
+                ]
+            },
+            {
+                "name": "devm_device_remove_group",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "grp",
+                        "linux": "const struct attribute_group *",
+                        "xenus": "const attribute_group_k"
+                    }
+                ]
+            },
+            {
+                "name": "devm_device_add_groups",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "groups",
+                        "linux": "const struct attribute_group **",
+                        "xenus": "const attribute_group_k *"
+                    }
+                ]
+            },
+            {
+                "name": "devm_device_remove_groups",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "groups",
+                        "linux": "const struct attribute_group **",
+                        "xenus": "const attribute_group_k *"
+                    }
+                ]
+            },
+            {
+                "name": "device_create_file",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "attr",
+                        "linux": "const struct device_attribute *",
+                        "xenus": "const device_attribute_k"
+                    }
+                ]
+            },
+            {
+                "name": "device_remove_file",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "attr",
+                        "linux": "const struct device_attribute *",
+                        "xenus": "const device_attribute_k"
+                    }
+                ]
+            },
+            {
+                "name": "device_remove_file_self",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "bool",
+                    "xenus": "bool"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "attr",
+                        "linux": "const struct device_attribute *",
+                        "xenus": "const device_attribute_k"
+                    }
+                ]
+            },
+            {
+                "name": "device_create_bin_file",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "attr",
+                        "linux": "const struct bin_attribute *",
+                        "xenus": "const bin_attribute_k"
+                    }
+                ]
+            },
+            {
+                "name": "device_remove_bin_file",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "attr",
+                        "linux": "const struct bin_attribute *",
+                        "xenus": "const bin_attribute_k"
+                    }
+                ]
+            },
+            {
+                "name": "device_initialize",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    }
+                ]
+            },
+            {
+                "name": "device_add",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    }
+                ]
+            },
+            {
+                "name": "device_register",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    }
+                ]
+            },
+            {
+                "name": "get_device",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct device *",
+                    "xenus": "device_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    }
+                ]
+            },
+            {
+                "name": "put_device",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    }
+                ]
+            },
+            {
+                "name": "device_del",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    }
+                ]
+            },
+            {
+                "name": "device_unregister",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    }
+                ]
+            },
+            {
+                "name": "device_for_each_child",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "parent",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "data",
+                        "linux": "void *",
+                        "xenus": "void *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "stub",
+                        "linux": "sysv_fptr_t",
+                        "xenus": "sysv_fptr_t"
+                    }
+                ]
+            },
+            {
+                "name": "device_for_each_child_reverse",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "parent",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "data",
+                        "linux": "void *",
+                        "xenus": "void *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "stub",
+                        "linux": "sysv_fptr_t",
+                        "xenus": "sysv_fptr_t"
+                    }
+                ]
+            },
+            {
+                "name": "device_find_child",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct device *",
+                    "xenus": "device_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "parent",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "data",
+                        "linux": "void *",
+                        "xenus": "void *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "stub",
+                        "linux": "sysv_fptr_t",
+                        "xenus": "sysv_fptr_t"
+                    }
+                ]
+            },
+            {
+                "name": "__root_device_register",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct device *",
+                    "xenus": "device_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "name",
+                        "linux": "const char *",
+                        "xenus": "const char *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "owner",
+                        "linux": "struct module *",
+                        "xenus": "module_k"
+                    }
+                ]
+            },
+            {
+                "name": "root_device_unregister",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    }
+                ]
+            },
+            {
+                "name": "device_create",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct device *",
+                    "xenus": "device_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "clazz",
+                        "linux": "struct class *",
+                        "xenus": "class_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "parent",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "devt",
+                        "linux": "dev_t",
+                        "xenus": "dev_t"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "drvdata",
+                        "linux": "void *",
+                        "xenus": "void *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "fmt",
+                        "linux": "const char *",
+                        "xenus": "const char *"
+                    }
+                ]
+            },
+            {
+                "name": "device_create_with_groups",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct device *",
+                    "xenus": "device_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "clazz",
+                        "linux": "struct class *",
+                        "xenus": "class_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "parent",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "devt",
+                        "linux": "dev_t",
+                        "xenus": "dev_t"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "drvdata",
+                        "linux": "void *",
+                        "xenus": "void *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "groups",
+                        "linux": "const struct attribute_group **",
+                        "xenus": "const attribute_group_k *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "fmt",
+                        "linux": "const char *",
+                        "xenus": "const char *"
+                    }
+                ]
+            },
+            {
+                "name": "device_destroy",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "clazz",
+                        "linux": "struct class *",
+                        "xenus": "class_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "devt",
+                        "linux": "dev_t",
+                        "xenus": "dev_t"
+                    }
+                ]
+            },
+            {
+                "name": "device_rename",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "new_name",
+                        "linux": "const char *",
+                        "xenus": "const char *"
+                    }
+                ]
+            },
+            {
+                "name": "dev_printk_emit",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "level",
                         "linux": "int",
                         "xenus": "l_int"
                     },
                     {
                         "usrPtr": false,
-                        "name": "preempt_offset",
+                        "name": "dev",
+                        "linux": "const struct device *",
+                        "xenus": "const device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "fmt",
+                        "linux": "const char *",
+                        "xenus": "const char *"
+                    }
+                ]
+            },
+            {
+                "name": "dev_emerg",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "const struct device *",
+                        "xenus": "const device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "fmt",
+                        "linux": "const char *",
+                        "xenus": "const char *"
+                    }
+                ]
+            },
+            {
+                "name": "dev_alert",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "const struct device *",
+                        "xenus": "const device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "fmt",
+                        "linux": "const char *",
+                        "xenus": "const char *"
+                    }
+                ]
+            },
+            {
+                "name": "dev_crit",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "const struct device *",
+                        "xenus": "const device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "fmt",
+                        "linux": "const char *",
+                        "xenus": "const char *"
+                    }
+                ]
+            },
+            {
+                "name": "dev_err",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "const struct device *",
+                        "xenus": "const device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "fmt",
+                        "linux": "const char *",
+                        "xenus": "const char *"
+                    }
+                ]
+            },
+            {
+                "name": "dev_warn",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "const struct device *",
+                        "xenus": "const device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "fmt",
+                        "linux": "const char *",
+                        "xenus": "const char *"
+                    }
+                ]
+            },
+            {
+                "name": "dev_notice",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "const struct device *",
+                        "xenus": "const device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "fmt",
+                        "linux": "const char *",
+                        "xenus": "const char *"
+                    }
+                ]
+            },
+            {
+                "name": "_dev_info",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "const struct device *",
+                        "xenus": "const device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "fmt",
+                        "linux": "const char *",
+                        "xenus": "const char *"
+                    }
+                ]
+            },
+            {
+                "name": "set_primary_fwnode",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "fwnode",
+                        "linux": "struct fwnode_handle *",
+                        "xenus": "fwnode_handle_k"
+                    }
+                ]
+            },
+            {
+                "name": "device_set_of_node_from_dev",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "dev",
+                        "linux": "struct device *",
+                        "xenus": "device_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "dev2",
+                        "linux": "const struct device *",
+                        "xenus": "const device_k"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "file": "usermem",
+        "symbols": [
+            {
+                "name": "_copy_from_user",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "unsigned long",
+                    "xenus": "l_unsigned_long"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "to",
+                        "linux": "void *",
+                        "xenus": "void *"
+                    },
+                    {
+                        "usrPtr": true,
+                        "name": "from",
+                        "linux": "const void *",
+                        "xenus": "const void *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "n",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    }
+                ]
+            },
+            {
+                "name": "_copy_to_user",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "unsigned long",
+                    "xenus": "l_unsigned_long"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": true,
+                        "name": "to",
+                        "linux": "void *",
+                        "xenus": "void *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "from",
+                        "linux": "const void *",
+                        "xenus": "const void *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "n",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "file": "readdir",
+        "symbols": [
+            {
+                "name": "iterate_dir",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "file",
+                        "linux": "struct file *",
+                        "xenus": "file_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "ctx",
+                        "linux": "struct dir_context *",
+                        "xenus": "dir_context_k"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "file": "rwsem",
+        "symbols": [
+            {
+                "name": "downgrade_write",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "sem",
+                        "linux": "struct rw_semaphore *",
+                        "xenus": "rw_semaphore_k"
+                    }
+                ]
+            },
+            {
+                "name": "up_write",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "sem",
+                        "linux": "struct rw_semaphore *",
+                        "xenus": "rw_semaphore_k"
+                    }
+                ]
+            },
+            {
+                "name": "up_read",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "sem",
+                        "linux": "struct rw_semaphore *",
+                        "xenus": "rw_semaphore_k"
+                    }
+                ]
+            },
+            {
+                "name": "down_write_trylock",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "sem",
+                        "linux": "struct rw_semaphore *",
+                        "xenus": "rw_semaphore_k"
+                    }
+                ]
+            },
+            {
+                "name": "down_write_killable",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "sem",
+                        "linux": "struct rw_semaphore *",
+                        "xenus": "rw_semaphore_k"
+                    }
+                ]
+            },
+            {
+                "name": "down_write",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "sem",
+                        "linux": "struct rw_semaphore *",
+                        "xenus": "rw_semaphore_k"
+                    }
+                ]
+            },
+            {
+                "name": "down_read_trylock",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "sem",
+                        "linux": "struct rw_semaphore *",
+                        "xenus": "rw_semaphore_k"
+                    }
+                ]
+            },
+            {
+                "name": "down_read",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "sem",
+                        "linux": "struct rw_semaphore *",
+                        "xenus": "rw_semaphore_k"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "file": "signal",
+        "symbols": [
+            {
+                "name": "kernel_sigaction",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "sig",
+                        "linux": "int",
+                        "xenus": "l_int"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "action",
+                        "linux": "__sighandler_t",
+                        "xenus": "__sighandler_t"
+                    }
+                ]
+            },
+            {
+                "name": "recalc_sigpending",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": []
+            },
+            {
+                "name": "dequeue_signal",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "tsk",
+                        "linux": "struct task_struct *",
+                        "xenus": "task_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "mask",
+                        "linux": "sigset_t *",
+                        "xenus": "sigset_t *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "info",
+                        "linux": "siginfo_t *",
+                        "xenus": "siginfo_t *"
+                    }
+                ]
+            },
+            {
+                "name": "flush_signals",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "t",
+                        "linux": "struct task_struct *",
+                        "xenus": "task_k"
+                    }
+                ]
+            },
+            {
+                "name": "force_sig",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "sig",
+                        "linux": "int",
+                        "xenus": "l_int"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "p",
+                        "linux": "struct task_struct *",
+                        "xenus": "task_k"
+                    }
+                ]
+            },
+            {
+                "name": "send_sig",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "sig",
+                        "linux": "int",
+                        "xenus": "l_int"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "p",
+                        "linux": "struct task_struct *",
+                        "xenus": "task_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "priv",
                         "linux": "int",
                         "xenus": "l_int"
                     }
                 ]
             },
             {
-                "name": "___might_sleep",
+                "name": "send_sig_info",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "sig",
+                        "linux": "int",
+                        "xenus": "l_int"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "info",
+                        "linux": "struct siginfo *",
+                        "xenus": "siginfo_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "p",
+                        "linux": "struct task_struct *",
+                        "xenus": "task_k"
+                    }
+                ]
+            },
+            {
+                "name": "sigprocmask",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "how",
+                        "linux": "int",
+                        "xenus": "l_int"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "set",
+                        "linux": "sigset_t *",
+                        "xenus": "sigset_t *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "oldset",
+                        "linux": "sigset_t *",
+                        "xenus": "sigset_t *"
+                    }
+                ]
+            },
+            {
+                "name": "kill_pgrp",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "pid",
+                        "linux": "struct pid *",
+                        "xenus": "pid_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "sig",
+                        "linux": "int",
+                        "xenus": "l_int"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "priv",
+                        "linux": "int",
+                        "xenus": "l_int"
+                    }
+                ]
+            },
+            {
+                "name": "kill_pid",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "pid",
+                        "linux": "struct pid *",
+                        "xenus": "pid_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "sig",
+                        "linux": "int",
+                        "xenus": "l_int"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "priv",
+                        "linux": "int",
+                        "xenus": "l_int"
+                    }
+                ]
+            },
+            {
+                "name": "kill_pid_info_as_cred",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "sig",
+                        "linux": "int",
+                        "xenus": "l_int"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "info",
+                        "linux": "struct siginfo *",
+                        "xenus": "siginfo_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "pid",
+                        "linux": "struct pid *",
+                        "xenus": "pid_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "cred",
+                        "linux": "const struct cred *",
+                        "xenus": "const cred_k"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "file": "gup",
+        "symbols": [
+            {
+                "name": "fixup_user_fault",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "tsk",
+                        "linux": "struct task_struct *",
+                        "xenus": "task_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "mm",
+                        "linux": "struct mm_struct *",
+                        "xenus": "mm_struct_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "address",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "fault_flags",
+                        "linux": "unsigned int",
+                        "xenus": "l_unsigned_int"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "unlocked",
+                        "linux": "bool *",
+                        "xenus": "bool *"
+                    }
+                ]
+            },
+            {
+                "name": "get_user_pages_locked",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "long",
+                    "xenus": "l_long"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "start",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "nr_pages",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "gup_flags",
+                        "linux": "unsigned int",
+                        "xenus": "l_unsigned_int"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "pages",
+                        "linux": "struct page **",
+                        "xenus": "page_k *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "locked",
+                        "linux": "int *",
+                        "xenus": "l_int *"
+                    }
+                ]
+            },
+            {
+                "name": "get_user_pages_unlocked",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "long",
+                    "xenus": "l_long"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "start",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "nr_pages",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "pages",
+                        "linux": "struct page **",
+                        "xenus": "page_k *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "gup_flags",
+                        "linux": "unsigned int",
+                        "xenus": "l_unsigned_int"
+                    }
+                ]
+            },
+            {
+                "name": "get_user_pages_remote",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "long",
+                    "xenus": "l_long"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "tsk",
+                        "linux": "struct task_struct *",
+                        "xenus": "task_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "mm",
+                        "linux": "struct mm_struct *",
+                        "xenus": "mm_struct_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "start",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "nr_pages",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "gup_flags",
+                        "linux": "unsigned int",
+                        "xenus": "l_unsigned_int"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "pages",
+                        "linux": "struct page **",
+                        "xenus": "page_k *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "vmas",
+                        "linux": "struct vm_area_struct **",
+                        "xenus": "vm_area_struct_k *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "locked",
+                        "linux": "int *",
+                        "xenus": "l_int *"
+                    }
+                ]
+            },
+            {
+                "name": "get_user_pages",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "long",
+                    "xenus": "l_long"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "start",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "nr_pages",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "gup_flags",
+                        "linux": "unsigned int",
+                        "xenus": "l_unsigned_int"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "pages",
+                        "linux": "struct page **",
+                        "xenus": "page_k *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "vmas",
+                        "linux": "struct vm_area_struct **",
+                        "xenus": "vm_area_struct_k *"
+                    }
+                ]
+            },
+            {
+                "name": "get_user_pages_longterm",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "long",
+                    "xenus": "l_long"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "start",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "nr_pages",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "gup_flags",
+                        "linux": "unsigned int",
+                        "xenus": "l_unsigned_int"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "pages",
+                        "linux": "struct page **",
+                        "xenus": "page_k *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "vmas_arg",
+                        "linux": "struct vm_area_struct **",
+                        "xenus": "vm_area_struct_k *"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "file": "iomap",
+        "symbols": [
+            {
+                "name": "ioremap_nocache",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void *",
+                    "xenus": "void *"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "phys_addr",
+                        "linux": "resource_size_t",
+                        "xenus": "resource_size_t"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "size",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    }
+                ]
+            },
+            {
+                "name": "ioremap_uc",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void *",
+                    "xenus": "void *"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "phys_addr",
+                        "linux": "resource_size_t",
+                        "xenus": "resource_size_t"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "size",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    }
+                ]
+            },
+            {
+                "name": "ioremap_wc",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void *",
+                    "xenus": "void *"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "phys_addr",
+                        "linux": "resource_size_t",
+                        "xenus": "resource_size_t"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "size",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    }
+                ]
+            },
+            {
+                "name": "ioremap_wt",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void *",
+                    "xenus": "void *"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "phys_addr",
+                        "linux": "resource_size_t",
+                        "xenus": "resource_size_t"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "size",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    }
+                ]
+            },
+            {
+                "name": "ioremap_cache",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void *",
+                    "xenus": "void *"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "phys_addr",
+                        "linux": "resource_size_t",
+                        "xenus": "resource_size_t"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "size",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    }
+                ]
+            },
+            {
+                "name": "ioremap_prot",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void *",
+                    "xenus": "void *"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "phys_addr",
+                        "linux": "resource_size_t",
+                        "xenus": "resource_size_t"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "size",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "prot_val",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    }
+                ]
+            },
+            {
+                "name": "iounmap",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "addr",
+                        "linux": "void *",
+                        "xenus": "void *"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "file": "xenus_memex",
+        "symbols": [
+            {
+                "name": "memex_page_to_phys",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "dma_addr_t",
+                    "xenus": "dma_addr_t"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "page",
+                        "linux": "struct page *",
+                        "xenus": "page_k"
+                    }
+                ]
+            },
+            {
+                "name": "memex_page_to_virt",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void *",
+                    "xenus": "void *"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "page",
+                        "linux": "struct page *",
+                        "xenus": "page_k"
+                    }
+                ]
+            },
+            {
+                "name": "memex_get_prot",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "pcm",
+                        "linux": "enum page_cache_mode",
+                        "xenus": "enum page_cache_mode"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "out",
+                        "linux": "pgprot_t *",
+                        "xenus": "pgprot_t *"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "file": "mempolicy",
+        "symbols": [
+            {
+                "name": "alloc_pages_current",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct page *",
+                    "xenus": "page_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "gfp",
+                        "linux": "gfp_t",
+                        "xenus": "gfp_t"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "order",
+                        "linux": "unsigned",
+                        "xenus": "l_unsigned"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "file": "alloc_pages",
+        "symbols": [
+            {
+                "name": "split_page",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "page",
+                        "linux": "struct page *",
+                        "xenus": "page_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "order",
+                        "linux": "unsigned int",
+                        "xenus": "l_unsigned_int"
+                    }
+                ]
+            },
+            {
+                "name": "__alloc_pages_nodemask",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct page *",
+                    "xenus": "page_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "gfp_mask",
+                        "linux": "gfp_t",
+                        "xenus": "gfp_t"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "order",
+                        "linux": "unsigned int",
+                        "xenus": "l_unsigned_int"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "preferred_nid",
+                        "linux": "int",
+                        "xenus": "l_int"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "nodemask",
+                        "linux": "nodemask_t *",
+                        "xenus": "nodemask_t *"
+                    }
+                ]
+            },
+            {
+                "name": "__get_free_pages",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "unsigned long",
+                    "xenus": "l_unsigned_long"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "gfp_mask",
+                        "linux": "gfp_t",
+                        "xenus": "gfp_t"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "order",
+                        "linux": "unsigned int",
+                        "xenus": "l_unsigned_int"
+                    }
+                ]
+            },
+            {
+                "name": "get_zeroed_page",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "unsigned long",
+                    "xenus": "l_unsigned_long"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "gfp_mask",
+                        "linux": "gfp_t",
+                        "xenus": "gfp_t"
+                    }
+                ]
+            },
+            {
+                "name": "__free_pages",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "page",
+                        "linux": "struct page *",
+                        "xenus": "page_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "order",
+                        "linux": "unsigned int",
+                        "xenus": "l_unsigned_int"
+                    }
+                ]
+            },
+            {
+                "name": "free_pages",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "addr",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "order",
+                        "linux": "unsigned int",
+                        "xenus": "l_unsigned_int"
+                    }
+                ]
+            },
+            {
+                "name": "__page_frag_cache_drain",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "page",
+                        "linux": "struct page *",
+                        "xenus": "page_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "count",
+                        "linux": "unsigned int",
+                        "xenus": "l_unsigned_int"
+                    }
+                ]
+            },
+            {
+                "name": "page_frag_alloc",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void *",
+                    "xenus": "void *"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "nc",
+                        "linux": "struct page_frag_cache *",
+                        "xenus": "page_frag_cache_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "fragsz",
+                        "linux": "unsigned int",
+                        "xenus": "l_unsigned_int"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "gfp_mask",
+                        "linux": "gfp_t",
+                        "xenus": "gfp_t"
+                    }
+                ]
+            },
+            {
+                "name": "page_frag_free",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "addr",
+                        "linux": "void *",
+                        "xenus": "void *"
+                    }
+                ]
+            },
+            {
+                "name": "alloc_pages_exact",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void *",
+                    "xenus": "void *"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "size",
+                        "linux": "size_t",
+                        "xenus": "size_t"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "gfp_mask",
+                        "linux": "gfp_t",
+                        "xenus": "gfp_t"
+                    }
+                ]
+            },
+            {
+                "name": "free_pages_exact",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "virt",
+                        "linux": "void *",
+                        "xenus": "void *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "size",
+                        "linux": "size_t",
+                        "xenus": "size_t"
+                    }
+                ]
+            },
+            {
+                "name": "nr_free_buffer_pages",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "unsigned long",
+                    "xenus": "l_unsigned_long"
+                },
+                "parameters": []
+            },
+            {
+                "name": "si_mem_available",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "long",
+                    "xenus": "l_long"
+                },
+                "parameters": []
+            },
+            {
+                "name": "si_meminfo",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "val",
+                        "linux": "struct sysinfo *",
+                        "xenus": "sysinfo_k"
+                    }
+                ]
+            },
+            {
+                "name": "adjust_managed_page_count",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "page",
+                        "linux": "struct page *",
+                        "xenus": "page_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "count",
+                        "linux": "long",
+                        "xenus": "l_long"
+                    }
+                ]
+            },
+            {
+                "name": "free_reserved_area",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "unsigned long",
+                    "xenus": "l_unsigned_long"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "start",
+                        "linux": "void *",
+                        "xenus": "void *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "end",
+                        "linux": "void *",
+                        "xenus": "void *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "poison",
+                        "linux": "int",
+                        "xenus": "l_int"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "s",
+                        "linux": "char *",
+                        "xenus": "char *"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "file": "vmalloc",
+        "symbols": [
+            {
+                "name": "vmalloc_to_page",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct page *",
+                    "xenus": "page_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "vmalloc_addr",
+                        "linux": "const void *",
+                        "xenus": "const void *"
+                    }
+                ]
+            },
+            {
+                "name": "vmalloc_to_pfn",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "unsigned long",
+                    "xenus": "l_unsigned_long"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "vmalloc_addr",
+                        "linux": "const void *",
+                        "xenus": "const void *"
+                    }
+                ]
+            },
+            {
+                "name": "register_vmap_purge_notifier",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "nb",
+                        "linux": "struct notifier_block *",
+                        "xenus": "notifier_block_k"
+                    }
+                ]
+            },
+            {
+                "name": "unregister_vmap_purge_notifier",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "nb",
+                        "linux": "struct notifier_block *",
+                        "xenus": "notifier_block_k"
+                    }
+                ]
+            },
+            {
+                "name": "vm_unmap_aliases",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": []
+            },
+            {
+                "name": "vm_unmap_ram",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "mem",
+                        "linux": "const void *",
+                        "xenus": "const void *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "count",
+                        "linux": "unsigned int",
+                        "xenus": "l_unsigned_int"
+                    }
+                ]
+            },
+            {
+                "name": "vm_map_ram",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void *",
+                    "xenus": "void *"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "pages",
+                        "linux": "struct page **",
+                        "xenus": "page_k *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "count",
+                        "linux": "unsigned int",
+                        "xenus": "l_unsigned_int"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "node",
+                        "linux": "int",
+                        "xenus": "l_int"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "prot",
+                        "linux": "pgprot_t",
+                        "xenus": "pgprot_t"
+                    }
+                ]
+            },
+            {
+                "name": "unmap_kernel_range_noflush",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "addr",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "size",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    }
+                ]
+            },
+            {
+                "name": "unmap_kernel_range",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "addr",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "size",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    }
+                ]
+            },
+            {
+                "name": "map_vm_area",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "area",
+                        "linux": "struct vm_struct *",
+                        "xenus": "vm_struct_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "prot",
+                        "linux": "pgprot_t",
+                        "xenus": "pgprot_t"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "pages",
+                        "linux": "struct page **",
+                        "xenus": "page_k *"
+                    }
+                ]
+            },
+            {
+                "name": "__get_vm_area",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct vm_struct *",
+                    "xenus": "vm_struct_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "size",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "flags",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "start",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "end",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    }
+                ]
+            },
+            {
+                "name": "vunmap",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "addr",
+                        "linux": "const void *",
+                        "xenus": "const void *"
+                    }
+                ]
+            },
+            {
+                "name": "vmap",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void *",
+                    "xenus": "void *"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "pages",
+                        "linux": "struct page **",
+                        "xenus": "page_k *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "count",
+                        "linux": "unsigned int",
+                        "xenus": "l_unsigned_int"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "flags",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "prot",
+                        "linux": "pgprot_t",
+                        "xenus": "pgprot_t"
+                    }
+                ]
+            },
+            {
+                "name": "__vmalloc",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void *",
+                    "xenus": "void *"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "size",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "gfp_mask",
+                        "linux": "gfp_t",
+                        "xenus": "gfp_t"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "prot",
+                        "linux": "pgprot_t",
+                        "xenus": "pgprot_t"
+                    }
+                ]
+            },
+            {
+                "name": "remap_vmalloc_range_partial",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "vma",
+                        "linux": "struct vm_area_struct *",
+                        "xenus": "vm_area_struct_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "uaddr",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "kaddr",
+                        "linux": "void *",
+                        "xenus": "void *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "size",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    }
+                ]
+            },
+            {
+                "name": "remap_vmalloc_range",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "vma",
+                        "linux": "struct vm_area_struct *",
+                        "xenus": "vm_area_struct_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "addr",
+                        "linux": "void *",
+                        "xenus": "void *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "pgoff",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    }
+                ]
+            },
+            {
+                "name": "alloc_vm_area",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct vm_struct *",
+                    "xenus": "vm_struct_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "size",
+                        "linux": "size_t",
+                        "xenus": "size_t"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "ptes",
+                        "linux": "pte_t **",
+                        "xenus": "pte_t **"
+                    }
+                ]
+            },
+            {
+                "name": "free_vm_area",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "area",
+                        "linux": "struct vm_struct *",
+                        "xenus": "vm_struct_k"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "file": "memory",
+        "symbols": [
+            {
+                "name": "zap_vma_ptes",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "vma",
+                        "linux": "struct vm_area_struct *",
+                        "xenus": "vm_area_struct_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "address",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "size",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    }
+                ]
+            },
+            {
+                "name": "vm_insert_page",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "vma",
+                        "linux": "struct vm_area_struct *",
+                        "xenus": "vm_area_struct_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "addr",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "page",
+                        "linux": "struct page *",
+                        "xenus": "page_k"
+                    }
+                ]
+            },
+            {
+                "name": "vm_insert_pfn",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "vma",
+                        "linux": "struct vm_area_struct *",
+                        "xenus": "vm_area_struct_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "addr",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "pfn",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    }
+                ]
+            },
+            {
+                "name": "vm_insert_pfn_prot",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "vma",
+                        "linux": "struct vm_area_struct *",
+                        "xenus": "vm_area_struct_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "addr",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "pfn",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "pgprot",
+                        "linux": "pgprot_t",
+                        "xenus": "pgprot_t"
+                    }
+                ]
+            },
+            {
+                "name": "vm_insert_mixed",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "vma",
+                        "linux": "struct vm_area_struct *",
+                        "xenus": "vm_area_struct_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "addr",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "pfn",
+                        "linux": "pfn_t",
+                        "xenus": "pfn_t"
+                    }
+                ]
+            },
+            {
+                "name": "vm_insert_mixed_mkwrite",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "vma",
+                        "linux": "struct vm_area_struct *",
+                        "xenus": "vm_area_struct_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "addr",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "pfn",
+                        "linux": "pfn_t",
+                        "xenus": "pfn_t"
+                    }
+                ]
+            },
+            {
+                "name": "remap_pfn_range",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "vma",
+                        "linux": "struct vm_area_struct *",
+                        "xenus": "vm_area_struct_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "addr",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "pfn",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "size",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "prot",
+                        "linux": "pgprot_t",
+                        "xenus": "pgprot_t"
+                    }
+                ]
+            },
+            {
+                "name": "vm_iomap_memory",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "vma",
+                        "linux": "struct vm_area_struct *",
+                        "xenus": "vm_area_struct_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "start",
+                        "linux": "phys_addr_t",
+                        "xenus": "phys_addr_t"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "len",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    }
+                ]
+            },
+            {
+                "name": "apply_to_page_range",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "mm",
+                        "linux": "struct mm_struct *",
+                        "xenus": "mm_struct_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "addr",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "size",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "fn",
+                        "linux": "pte_fn_t",
+                        "xenus": "pte_fn_t"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "data",
+                        "linux": "void *",
+                        "xenus": "void *"
+                    }
+                ]
+            },
+            {
+                "name": "unmap_mapping_range",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "mapping",
+                        "linux": "struct address_space *",
+                        "xenus": "address_space_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "holebegin",
+                        "linux": "loff_t const",
+                        "xenus": "loff_t const"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "holelen",
+                        "linux": "loff_t const",
+                        "xenus": "loff_t const"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "even_cows",
+                        "linux": "int",
+                        "xenus": "l_int"
+                    }
+                ]
+            },
+            {
+                "name": "handle_mm_fault",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "vma",
+                        "linux": "struct vm_area_struct *",
+                        "xenus": "vm_area_struct_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "address",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "flags",
+                        "linux": "unsigned int",
+                        "xenus": "l_unsigned_int"
+                    }
+                ]
+            },
+            {
+                "name": "follow_pfn",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "vma",
+                        "linux": "struct vm_area_struct *",
+                        "xenus": "vm_area_struct_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "address",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "pfn",
+                        "linux": "unsigned long *",
+                        "xenus": "l_unsigned_long *"
+                    }
+                ]
+            },
+            {
+                "name": "generic_access_phys",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "vma",
+                        "linux": "struct vm_area_struct *",
+                        "xenus": "vm_area_struct_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "addr",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "buf",
+                        "linux": "void *",
+                        "xenus": "void *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "len",
+                        "linux": "int",
+                        "xenus": "l_int"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "write",
+                        "linux": "int",
+                        "xenus": "l_int"
+                    }
+                ]
+            },
+            {
+                "name": "access_process_vm",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "tsk",
+                        "linux": "struct task_struct *",
+                        "xenus": "task_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "addr",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "buf",
+                        "linux": "void *",
+                        "xenus": "void *"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "len",
+                        "linux": "int",
+                        "xenus": "l_int"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "gup_flags",
+                        "linux": "unsigned int",
+                        "xenus": "l_unsigned_int"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "file": "unsafespinnies",
+        "symbols": [
+            {
+                "name": "_raw_spin_lock",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "lock",
+                        "linux": "void *",
+                        "xenus": "void *"
+                    }
+                ]
+            },
+            {
+                "name": "_raw_spin_unlock",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "lock",
+                        "linux": "void *",
+                        "xenus": "void *"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "file": "map_hack",
+        "symbols": [
+            {
+                "name": "_install_special_mapping",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct vm_area_struct *",
+                    "xenus": "vm_area_struct_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "mm",
+                        "linux": "struct mm_struct *",
+                        "xenus": "mm_struct_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "addr",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "len",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "vm_flags",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "spec",
+                        "linux": "const struct vm_special_mapping *",
+                        "xenus": "const vm_special_mapping_k"
+                    }
+                ]
+            },
+            {
+                "name": "vm_munmap_ex",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "int",
+                    "xenus": "l_int"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "mm",
+                        "linux": "struct mm_struct *",
+                        "xenus": "mm_struct_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "start",
+                        "linux": "unsigned long",
+                        "xenus": "l_unsigned_long"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "lengt",
+                        "linux": "size_t",
+                        "xenus": "size_t"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "file": "KNIFE",
+        "symbols": [
+            {
+                "name": "free_task",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "tsk",
+                        "linux": "struct task_struct *",
+                        "xenus": "task_k"
+                    }
+                ]
+            },
+            {
+                "name": "__put_task_struct",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "tsk",
+                        "linux": "struct task_struct *",
+                        "xenus": "task_k"
+                    }
+                ]
+            },
+            {
+                "name": "__mmdrop",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "mm",
+                        "linux": "struct mm_struct *",
+                        "xenus": "mm_struct_k"
+                    }
+                ]
+            },
+            {
+                "name": "mmput",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "void",
+                    "xenus": "void"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "mm",
+                        "linux": "struct mm_struct *",
+                        "xenus": "mm_struct_k"
+                    }
+                ]
+            },
+            {
+                "name": "get_mm_exe_file",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct file *",
+                    "xenus": "file_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "mm",
+                        "linux": "struct mm_struct *",
+                        "xenus": "mm_struct_k"
+                    }
+                ]
+            },
+            {
+                "name": "get_task_exe_file",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct file *",
+                    "xenus": "file_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "task",
+                        "linux": "struct task_struct *",
+                        "xenus": "task_k"
+                    }
+                ]
+            },
+            {
+                "name": "get_task_mm",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct mm_struct *",
+                    "xenus": "mm_struct_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "task",
+                        "linux": "struct task_struct *",
+                        "xenus": "task_k"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "file": "file_table",
+        "symbols": [
+            {
+                "name": "get_max_files",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "unsigned long",
+                    "xenus": "l_unsigned_long"
+                },
+                "parameters": []
+            },
+            {
+                "name": "alloc_file",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "struct file *",
+                    "xenus": "file_k"
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "path",
+                        "linux": "const struct path *",
+                        "xenus": "const path_k"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "mode",
+                        "linux": "fmode_t",
+                        "xenus": "fmode_t"
+                    },
+                    {
+                        "usrPtr": false,
+                        "name": "fop",
+                        "linux": "const struct file_operations *",
+                        "xenus": "const file_operations_k"
+                    }
+                ]
+            },
+            {
+                "name": "fput",
                 "returnType": {
                     "usrPtr": false,
                     "linux": "void",
@@ -5082,20 +9542,8 @@
                     {
                         "usrPtr": false,
                         "name": "file",
-                        "linux": "const char *",
-                        "xenus": "const char *"
-                    },
-                    {
-                        "usrPtr": false,
-                        "name": "line",
-                        "linux": "int",
-                        "xenus": "l_int"
-                    },
-                    {
-                        "usrPtr": false,
-                        "name": "preempt_offset",
-                        "linux": "int",
-                        "xenus": "l_int"
+                        "linux": "struct file *",
+                        "xenus": "file_k"
                     }
                 ]
             }
