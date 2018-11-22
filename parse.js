@@ -5,6 +5,11 @@ var primativeTypes =
 						{linux: 'unsigned long long', xenus: 'l_unsigned_long_long'},
 						{linux: 'unsigned short',     xenus: 'l_unsigned_short'},
 						
+						{linux: 'signed int',       xenus: 'l_signed_int'}, 
+						{linux: 'signed long',      xenus: 'l_signed_long'},
+						{linux: 'signed long long', xenus: 'l_signed_long_long'},
+						{linux: 'signed short',     xenus: 'l_signed_short'},
+						
 						{linux: 'int',       xenus: 'l_int'}, 
 						{linux: 'long',      xenus: 'l_long'},
 						{linux: 'long long', xenus: 'l_long_long'},
