@@ -121,7 +121,11 @@
 		"unsigned long round_jiffies_up_relative(unsigned long j)",
 		"void msleep(unsigned int msecs)",
 		"unsigned long msleep_interruptible(unsigned int msecs)",
-		"void __sched usleep_range(unsigned long min, unsigned long max)"
+		"void __sched usleep_range(unsigned long min, unsigned long max)",
+		"signed long __sched schedule_timeout(signed long timeout)",
+		"signed long __sched schedule_timeout_interruptible(signed long timeout)",
+		"signed long __sched schedule_timeout_killable(signed long timeout)",
+		"signed long __sched schedule_timeout_uninterruptible(signed long timeout)"
 	],
 	"lockref":
 	[

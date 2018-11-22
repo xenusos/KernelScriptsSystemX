@@ -2480,6 +2480,70 @@
                         "xenus": "l_unsigned_long"
                     }
                 ]
+            },
+            {
+                "name": "schedule_timeout",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "signed long ",
+                    "xenus": "l_signed_long "
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "timeout",
+                        "linux": "signed long",
+                        "xenus": "l_signed_long"
+                    }
+                ]
+            },
+            {
+                "name": "schedule_timeout_interruptible",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "signed long ",
+                    "xenus": "l_signed_long "
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "timeout",
+                        "linux": "signed long",
+                        "xenus": "l_signed_long"
+                    }
+                ]
+            },
+            {
+                "name": "schedule_timeout_killable",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "signed long ",
+                    "xenus": "l_signed_long "
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "timeout",
+                        "linux": "signed long",
+                        "xenus": "l_signed_long"
+                    }
+                ]
+            },
+            {
+                "name": "schedule_timeout_uninterruptible",
+                "returnType": {
+                    "usrPtr": false,
+                    "linux": "signed long ",
+                    "xenus": "l_signed_long "
+                },
+                "parameters": [
+                    {
+                        "usrPtr": false,
+                        "name": "timeout",
+                        "linux": "signed long",
+                        "xenus": "l_signed_long"
+                    }
+                ]
             }
         ]
     },
