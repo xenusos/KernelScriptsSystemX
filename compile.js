@@ -1,19 +1,19 @@
 const fs = require("fs");
 const util = require("util");
-var dec =  require("./parse.js");
+const dec =  require("./parse.js");
 
 var out = [];
 
+// parse 
 const functions = JSON.parse(fs.readFileSync("functions.json", 'utf8'));
 Object.keys(functions).forEach((key) => {
 	out.push({"file": key, "symbols":  functions[key].map(dec)});
 });
-
 fs.writeFileSync("functions_compiled.json", JSON.stringify(out, 0, 4));
 
 
+// osapi headers to be used in the common root
 var osAll = "";
-
 out.forEach((obj) => {
 	var allBuf = "";
 	obj.symbols.forEach((symbol) => {
@@ -27,11 +27,10 @@ out.forEach((obj) => {
 	osAll += "\"\n";
 	
 });
-
 fs.writeFileSync("osapi/os_generated.h", osAll);
 
 
-
+// macro files to be used within the kernel source
 var allBuf = "";
 out.forEach((obj) => {
 	allBuf += util.format("// %s start. \n", obj.file);
@@ -41,6 +40,5 @@ out.forEach((obj) => {
 });
 
 fs.writeFileSync("kernel/sys_functions_all.macros", allBuf);
-
 
 module.exports = out;

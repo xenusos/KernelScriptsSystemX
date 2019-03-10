@@ -445,12 +445,6 @@
 		"void *ioremap_prot(resource_size_t phys_addr, unsigned long size, unsigned long prot_val)",
 		"void iounmap(void *addr)"
 	], 
-	"xenus_memex":
-	[
-		"dma_addr_t memex_page_to_phys(struct page * page)",
-		"void * memex_page_to_virt(struct page * page)",
-		"void memex_get_prot(enum page_cache_mode pcm, pgprot_t * out)"
-	],
 	"mempolicy":
 	[
 		"struct page *alloc_pages_current(gfp_t gfp, unsigned order)"
