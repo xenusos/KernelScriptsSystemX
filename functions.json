@@ -487,7 +487,8 @@
 		"int remap_vmalloc_range_partial(struct vm_area_struct *vma, unsigned long uaddr, void *kaddr, unsigned long size)",
 		"int remap_vmalloc_range(struct vm_area_struct *vma, void *addr, unsigned long pgoff)",
 		"struct vm_struct *alloc_vm_area(size_t size, pte_t **ptes)",
-		"void free_vm_area(struct vm_struct *area)"
+		"void free_vm_area(struct vm_struct *area)",
+		"int map_kernel_range_noflush(unsigned long addr, unsigned long size, pgprot_t prot, struct page **pages)"
 	],
 	"memory":
 	[
