@@ -532,5 +532,19 @@
 		"unsigned long get_max_files(void)",
 		"struct file *alloc_file(const struct path *path, fmode_t mode, const struct file_operations *fop)",
 		"void fput(struct file *file)"
-	]	
+	],
+	"mprotect":
+	[
+		"int do_mprotect_pkey(struct task_struct * task, unsigned long start, size_t len, unsigned long prot, int pkey)",
+		"int do_pkey_free(struct task_struct * task, int pkey)",
+		"int do_pkey_alloc(struct task_struct * task, unsigned long flags, unsigned long init_val)"
+	],
+	"ioremap":
+	[
+		"int ioremap_page_range(unsigned long addr, unsigned long end, phys_addr_t phys_addr, pgprot_t prot)"
+	],
+	"pat":
+	[
+		"int kernel_map_sync_memtype(u64 base, unsigned long size, enum page_cache_mode pcm)"
+	]
 }
